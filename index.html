@@ -135,12 +135,12 @@
         box-shadow:0 32px 64px -22px rgba(0,0,0,.4), 0 0 0 1px rgba(0,0,0,.05);
     }
 
-    /* ================= 新增：聚合平台卡片（已精简尺寸） ================= */
+    /* 开发者聚合平台卡片 */
     .platform-card {
         background: linear-gradient(135deg, #ffffff 0%, #f5f5f7 100%);
         border: 1px solid rgba(0, 0, 0, 0.04);
         border-radius: var(--radius-lg);
-        padding: 32px 40px; /* 适度缩小 */
+        padding: 32px 40px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -150,56 +150,19 @@
         box-shadow: 0 10px 30px -10px rgba(0,0,0,.05);
         transition: box-shadow .5s var(--ease-out);
     }
-    .platform-card:hover {
-        box-shadow: 0 20px 50px -16px rgba(0,0,0,.1);
-    }
-    .platform-info {
-        flex: 1 1 280px;
-    }
+    .platform-card:hover { box-shadow: 0 20px 50px -16px rgba(0,0,0,.1); }
+    .platform-info { flex: 1 1 280px; }
     .platform-info h3 {
-        font-size: 22px;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-        margin-bottom: 8px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
+        font-size: 22px; font-weight: 700; letter-spacing: -0.5px;
+        margin-bottom: 8px; display: flex; align-items: center; gap: 10px;
     }
-    .platform-info h3 svg {
-        width: 22px; height: 22px;
-        fill: none; stroke: var(--blue); stroke-width: 1.8;
-        stroke-linecap: round; stroke-linejoin: round;
-    }
-    .platform-info p {
-        font-size: 15px;
-        color: var(--text-secondary);
-        line-height: 1.5;
-        letter-spacing: -0.2px;
-    }
-    .platform-actions {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-    }
-    .platform-actions .btn {
-        background: #fff;
-        border: 1px solid var(--border-strong);
-        color: var(--text);
-        padding: 11px 24px; /* 比常规按钮稍微紧凑一点 */
-    }
-    .platform-actions .btn-primary {
-        background: var(--blue);
-        color: #fff;
-        border: none;
-    }
-    .platform-actions .btn-primary:hover {
-        background: var(--blue-hover);
-    }
-    .platform-actions .btn svg {
-        fill: none;
-        stroke: currentColor;
-        stroke-width: 1.8;
-    }
+    .platform-info h3 svg { width: 22px; height: 22px; fill: none; stroke: var(--blue); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .platform-info p { font-size: 15px; color: var(--text-secondary); line-height: 1.5; letter-spacing: -0.2px; }
+    .platform-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .platform-actions .btn { background: #fff; border: 1px solid var(--border-strong); color: var(--text); padding: 11px 24px; }
+    .platform-actions .btn-primary { background: var(--blue); color: #fff; border: none; }
+    .platform-actions .btn-primary:hover { background: var(--blue-hover); }
+    .platform-actions .btn svg { fill: none; stroke: currentColor; stroke-width: 1.8; }
 
     /* 区块 */
     .section-head{margin-bottom:68px;max-width:700px;}
@@ -254,16 +217,57 @@
     }
     .tech-tag:hover{transform:translateY(-2px);box-shadow:0 6px 14px -6px rgba(0,0,0,.12);}
 
+    /* 贡献者名单 */
+    .contributors-section { margin-bottom: 100px; }
+    .contributors-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+        gap: 24px;
+        text-align: center;
+    }
+    .contributor-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: var(--text);
+        transition: transform .3s var(--ease-out);
+    }
+    .contributor-item:hover {
+        transform: translateY(-4px);
+    }
+    .contributor-avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        background: var(--surface-2);
+        border: 1px solid rgba(0,0,0,0.04);
+        transition: box-shadow .3s, border-color .3s;
+    }
+    .contributor-item:hover .contributor-avatar {
+        box-shadow: 0 8px 20px rgba(0,113,227,0.2);
+        border-color: var(--blue);
+    }
+    .contributor-name {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text);
+        letter-spacing: -0.1px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+
     /* 底部 */
     .footer-links{
         display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;
         padding-top:32px;border-top:1px solid var(--border);gap:24px;
     }
-    .footer-left {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-    }
+    .footer-left { display: flex; flex-direction: column; gap: 16px; }
     .github-link{
         display:flex;align-items:center;gap:9px;color:var(--text);text-decoration:none;
         font-weight:500;font-size:14.5px;letter-spacing:-.2px;transition:opacity .25s var(--ease-out);
@@ -271,33 +275,15 @@
     .github-link svg{width:21px;height:21px;fill:var(--text);}
     .github-link:hover{opacity:.6;}
 
-    .footer-platform-links {
-        display: flex;
-        gap: 16px;
-        font-size: 14px;
-        font-weight: 500;
-    }
+    .footer-platform-links { display: flex; gap: 16px; font-size: 14px; font-weight: 500; }
     .footer-platform-links a {
-        color: var(--blue);
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        transition: opacity 0.2s;
+        color: var(--blue); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: opacity 0.2s;
     }
-    .footer-platform-links a:hover {
-        opacity: 0.7;
-    }
-    .footer-platform-links a svg {
-        width: 14px; height: 14px;
-        fill: none; stroke: currentColor; stroke-width: 2;
-        stroke-linecap: round; stroke-linejoin: round;
-    }
+    .footer-platform-links a:hover { opacity: 0.7; }
+    .footer-platform-links a svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
     .contact-info{display:flex;gap:26px;font-size:13.5px;color:var(--text-secondary);letter-spacing:-.1px;flex-wrap:wrap;}
-    .contact-info a{
-        display:inline-flex;align-items:center;gap:7px;color:inherit;text-decoration:none;transition:color .2s;
-    }
+    .contact-info a{ display:inline-flex;align-items:center;gap:7px;color:inherit;text-decoration:none;transition:color .2s; }
     .contact-info a:hover{color:var(--blue);}
     .contact-info svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
 
@@ -364,14 +350,13 @@
     .modal-qq-btn:hover{background:#0e9fcf;transform:translateY(-1px);}
     .modal-qq-btn svg{width:18px;height:18px;fill:currentColor;}
 
-    /* ================= 响应式 ================= */
+    /* 响应式 */
     @media (max-width:1024px){
         .main-content{padding:64px 48px 56px;}
         .hero{gap:48px;margin-bottom:80px;}
         .screenshot-grid{grid-template-columns:repeat(2,1fr);}
         .platform-card{padding:32px;margin-bottom:80px;}
     }
-    
     @media (max-width:760px){
         body{padding:0;align-items:flex-start;}
         .device-frame{border-radius:0;box-shadow:none;min-height:100vh;animation:none;}
@@ -388,32 +373,11 @@
         .hero-actions{flex-direction:column;gap:12px;width:100%;}
         .version-hint{justify-content:center;}
         
-        /* 移动端卡片大幅收紧 */
-        .platform-card {
-            flex-direction: column;
-            align-items: stretch;
-            padding: 20px;
-            margin-bottom: 60px;
-            gap: 16px;
-        }
-        .platform-info h3 {
-            font-size: 20px;
-            margin-bottom: 6px;
-        }
-        .platform-info p {
-            font-size: 14px;
-            line-height: 1.4;
-        }
-        .platform-actions {
-            flex-direction: column;
-            gap: 10px;
-        }
-        /* 覆盖全局手机端过大的 btn 样式 */
-        .platform-actions .btn {
-            width: 100%;
-            padding: 12px 16px; 
-            font-size: 15px;
-        }
+        .platform-card { flex-direction: column; align-items: stretch; padding: 20px; margin-bottom: 60px; gap: 16px; }
+        .platform-info h3 { font-size: 20px; margin-bottom: 6px; }
+        .platform-info p { font-size: 14px; line-height: 1.4; }
+        .platform-actions { flex-direction: column; gap: 10px; }
+        .platform-actions .btn { width: 100%; padding: 12px 16px; font-size: 15px; }
 
         .section-head{margin-bottom:40px;}
         .screenshot-grid{
@@ -431,6 +395,10 @@
         .feature-card:hover{transform:none;box-shadow:none;background:var(--surface-2);}
         .tech-section{padding:32px 24px;margin-bottom:56px;}
         
+        .contributors-grid { grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: 16px; }
+        .contributor-avatar { width: 56px; height: 56px; }
+        .contributor-name { font-size: 12px; }
+
         .footer-links{flex-direction:column;align-items:flex-start;gap:24px;padding-bottom:calc(28px + env(safe-area-inset-bottom));}
         .contact-info{flex-direction:column;gap:8px;}
         
@@ -492,7 +460,6 @@
             </div>
         </section>
 
-        <!-- ================= 开发者聚合平台入口 ================= -->
         <section class="reveal">
             <div class="platform-card">
                 <div class="platform-info">
@@ -604,6 +571,20 @@
             </div>
         </section>
 
+        <!-- ================= 新增：贡献者名单 ================= -->
+        <section class="reveal contributors-section" id="contributors">
+            <div class="section-head">
+                <h2 class="section-title">贡献者名单</h2>
+                <p class="section-desc">感谢每一位为 ST 管理器提交代码、提供反馈或分享创意的开发者。</p>
+            </div>
+            <div class="contributors-grid" id="contributorsGrid">
+                <!-- 这里的头像和名字由下面的 JS 自动从微云抓取并生成 -->
+                <div style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary); padding: 20px;">
+                    正在从微云同步最新贡献者名单...
+                </div>
+            </div>
+        </section>
+
         <footer class="reveal">
             <div class="footer-links">
                 <div class="footer-left">
@@ -662,48 +643,132 @@
 (function(){
     'use strict';
 
+    /* ================= 自动解析微云贡献者名单 ================= */
+    // 微云分享链接的 API 提取地址 (通过 allorigins 跨域代理)
+    const WEIYUN_URL = 'https://sharechain.qq.com/07280414a680dbf2b32985ccf38aaba7?qq_aio_chat_type=2';
+    const PROXY_URL = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(WEIYUN_URL);
+
+    const grid = document.getElementById('contributorsGrid');
+
+    async function fetchContributors() {
+        try {
+            const response = await fetch(PROXY_URL);
+            if (!response.ok) throw new Error('网络请求失败');
+            const htmlText = await response.text();
+
+            // 1. 提取包含 html_content 的 JSON 数据
+            // 微云的数据通常在这个 JSON 字符串里面
+            const match = htmlText.match(/"html_content":"(.*?)","share_flag"/);
+            let rawHtml = '';
+            
+            if (match && match[1]) {
+                // 提取出来的是转义过的字符串，需要还原为正常 HTML
+                rawHtml = match[1].replace(/\\u003C/g, '<').replace(/\\u003E/g, '>').replace(/\\"/g, '"').replace(/\\n/g, '');
+            } else {
+                // 兼容备用正则（防止格式微小变动）
+                const fallbackMatch = htmlText.match(/<div class="html_content">(.*?)<\/div>/s);
+                if (fallbackMatch) rawHtml = fallbackMatch[1];
+            }
+
+            if (!rawHtml) {
+                throw new Error('未找到 html_content 数据');
+            }
+
+            // 2. 使用 DOMParser 解析提取到的 HTML 字符串
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(rawHtml, 'text/html');
+            
+            // 提取所有的图片和文本
+            const contributors = [];
+            const imgs = doc.querySelectorAll('img');
+            
+            imgs.forEach(img => {
+                const src = img.getAttribute('src');
+                if (!src) return;
+
+                // 找名字：通常在 img 的父级或者前面的兄弟节点中寻找以 @ 开头的文本
+                let name = '匿名贡献者';
+                const parentText = img.parentElement.textContent || '';
+                const prevText = img.previousElementSibling ? img.previousElementSibling.textContent : '';
+                const combinedText = parentText + prevText;
+                
+                // 匹配 "@名字"
+                const nameMatch = combinedText.match(/@([^\s<]+)/);
+                if (nameMatch) {
+                    name = nameMatch[1].trim();
+                }
+
+                // 修复腾讯图片的 http 为 https 避免浏览器拦截
+                let avatarUrl = src.replace(/^http:\/\//i, 'https://');
+
+                contributors.push({ name, avatar: avatarUrl });
+            });
+
+            // 去重（防止同一个头像被多次提取）
+            const uniqueContributors = Array.from(new Map(contributors.map(item => [item.avatar, item])).values());
+
+            // 3. 渲染到页面
+            renderContributors(uniqueContributors);
+
+        } catch (error) {
+            console.error('获取微云数据失败:', error);
+            // 如果拉取失败，回退到本地硬编码的保底数据，保证页面不空
+            renderContributors([
+                { name: 'Cuteyoo', avatar: 'https://shp.qpic.cn/collector/2667900199/10fb5a06-9830-4b4c-a27e-6e46973278db/0' },
+                { name: '商心慈.', avatar: 'https://shp.qpic.cn/collector/2667900199/925b96f4-3743-47c6-92ff-69a8fa26dea0/0' }
+            ], true);
+        }
+    }
+
+    function renderContributors(list, isFallback = false) {
+        if (!grid) return;
+        grid.innerHTML = ''; // 清空加载提示
+
+        if (list.length === 0) {
+            grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--text-secondary);">暂无贡献者数据</div>';
+            return;
+        }
+
+        list.forEach(user => {
+            const a = document.createElement('a');
+            a.href = 'javascript:void(0)';
+            a.className = 'contributor-item';
+            a.innerHTML = `
+                <img src="${user.avatar}" alt="${user.name}" class="contributor-avatar" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iI2U4ZThlZCIvPjxwYXRoIGQ9Ik0xMiAxMmE0IDQgMCAxIDAgMC04IDQgNCAwIDAgMCAwIDh6bTAgMmMtNCAwLTcgMi03IDR2MmgxNHYtMmMwLTItMy00LTctNHoiIGZpbGw9IiM2ZTZlNzMiLz48L3N2Zz4='">
+                <span class="contributor-name" title="${user.name}">${user.name}</span>
+            `;
+            grid.appendChild(a);
+        });
+
+        // 如果是回退数据，加个不明显的小提示
+        if (isFallback) {
+            const tip = document.createElement('div');
+            tip.style.gridColumn = '1 / -1';
+            tip.style.textAlign = 'center';
+            tip.style.fontSize = '12px';
+            tip.style.color = '#a1a1a6';
+            tip.style.marginTop = '16px';
+            tip.textContent = '* 使用本地缓存数据，未能从微云实时同步';
+            grid.appendChild(tip);
+        }
+    }
+
+    // 启动数据抓取
+    fetchContributors();
+
+
     /* 功能数据 */
     const featureData = {
-        'file-manager': {
-            title: '双面板文件管理',
-            desc: '提供强大的双面板（左右分屏）文件管理体验。你可以在左右两个面板间自由浏览路径，一键完成文件复制、移动、删除和分享。支持多选批量操作，长按弹出宫格快捷菜单。同时支持 Root 目录浏览（系统路径自动切换 su -c 读写），甚至可以直接在压缩包内看图、播放视频，无需解压。'
-        },
-        'smali': {
-            title: 'smali 反编译 / 回编译',
-            desc: '内置完整的 baksmali 和 smali 引擎。你可以直接在手机上对 APK 进行反汇编，将其转换为 smali 代码。在自带的文本编辑器中修改代码后，一键即可汇编回 dex 文件。配合语法高亮和 smali 指令查询，极大提升了手机端逆向修改的效率。'
-        },
-        'dex': {
-            title: 'DEX 编辑与注入',
-            desc: '提供强大的 DEX 文件处理能力。支持字符串批量替换、注入日志（用于动态调试）、去除签名校验。除此之外，还支持批量删类、DEX 合并与提取，以及 DEX 混淆对抗，让你在手机端就能完成复杂的代码分析与修改工作。'
-        },
-        'arsc': {
-            title: 'ARSC 资源编辑',
-            desc: '完整解析并支持修改 Android 的 resources.arsc 资源文件。你可以直接编辑字符串池、包、类型和条目。支持 XML 翻译模式，对于需要汉化或修改应用内文字的场景极为方便。修改后的资源可以直接保存并重新打包。'
-        },
-        'sign': {
-            title: 'APK 签名 & 共存',
-            desc: '内建强大的签名与打包工具。支持 V1+V2+V3 等 7 种签名方案，支持 APK 的 zipalign 对齐优化。最实用的“共存”功能允许你一键修改 APK 的包名，实现同一个应用在手机上安装多个副本（比如游戏多开、同时登录两个账号等），互不干扰。'
-        },
-        'jadx': {
-            title: 'jadx Java 反编译',
-            desc: '内联了著名的 jadx 1.4.7 反编译引擎。无需电脑，直接在手机上将 DEX 文件反编译为可读的 Java 源码。这对于分析应用逻辑、学习代码结构或者寻找特定接口来说，是极其强大的杀手锏功能。'
-        },
-        'terminal': {
-            title: '终端 & Root',
-            desc: '内置了一个完全自绘的终端视图，支持 ANSI/CSI 转义序列、xterm 256 色、双指缩放字号以及扩展按键栏。对于高级用户，支持通过 su 命令直接执行 Root 权限的操作，让你在手机上拥有类似 Linux 终端的完整体验。'
-        },
-        'editor': {
-            title: '文本编辑器',
-            desc: '自研的高性能文本编辑器（EditView），采用 gap buffer 缓冲技术。支持 16 种编程语言的语法高亮、无限撤销重做、查找替换、括号自动配对以及剪贴板面板。无论是修改配置文件还是编写代码，都能得心应手。'
-        },
-        'archive': {
-            title: '压缩包 & 查看器',
-            desc: '全能的文件查看器工具箱。支持 ZIP、7Z、TAR、TAR.GZ、TAR.BZ2 等多种压缩格式的浏览和解压。内置了图片查看器（缩放拖动）、视频播放器、音乐播放器、字体预览，甚至还有十六进制（Hex）查看器和二进制 XML 编辑器。'
-        },
-        'ui': {
-            title: '液态玻璃 UI',
-            desc: '提供 8 种精心调校的玻璃调色板与液态玻璃视觉效果。配合 5 套主题（深色、浅色、蓝色、粉色等），让文件管理器也能拥有极致的视觉体验。在低版本 Android 系统上会自动优雅降级，确保流畅性。'
-        }
+        'file-manager': { title: '双面板文件管理', desc: '提供强大的双面板（左右分屏）文件管理体验。你可以在左右两个面板间自由浏览路径，一键完成文件复制、移动、删除和分享。支持多选批量操作，长按弹出宫格快捷菜单。同时支持 Root 目录浏览（系统路径自动切换 su -c 读写），甚至可以直接在压缩包内看图、播放视频，无需解压。' },
+        'smali': { title: 'smali 反编译 / 回编译', desc: '内置完整的 baksmali 和 smali 引擎。你可以直接在手机上对 APK 进行反汇编，将其转换为 smali 代码。在自带的文本编辑器中修改代码后，一键即可汇编回 dex 文件。配合语法高亮和 smali 指令查询，极大提升了手机端逆向修改的效率。' },
+        'dex': { title: 'DEX 编辑与注入', desc: '提供强大的 DEX 文件处理能力。支持字符串批量替换、注入日志（用于动态调试）、去除签名校验。除此之外，还支持批量删类、DEX 合并与提取，以及 DEX 混淆对抗，让你在手机端就能完成复杂的代码分析与修改工作。' },
+        'arsc': { title: 'ARSC 资源编辑', desc: '完整解析并支持修改 Android 的 resources.arsc 资源文件。你可以直接编辑字符串池、包、类型和条目。支持 XML 翻译模式，对于需要汉化或修改应用内文字的场景极为方便。修改后的资源可以直接保存并重新打包。' },
+        'sign': { title: 'APK 签名 & 共存', desc: '内建强大的签名与打包工具。支持 V1+V2+V3 等 7 种签名方案，支持 APK 的 zipalign 对齐优化。最实用的“共存”功能允许你一键修改 APK 的包名，实现同一个应用在手机上安装多个副本（比如游戏多开、同时登录两个账号等），互不干扰。' },
+        'jadx': { title: 'jadx Java 反编译', desc: '内联了著名的 jadx 1.4.7 反编译引擎。无需电脑，直接在手机上将 DEX 文件反编译为可读的 Java 源码。这对于分析应用逻辑、学习代码结构或者寻找特定接口来说，是极其强大的杀手锏功能。' },
+        'terminal': { title: '终端 & Root', desc: '内置了一个完全自绘的终端视图，支持 ANSI/CSI 转义序列、xterm 256 色、双指缩放字号以及扩展按键栏。对于高级用户，支持通过 su 命令直接执行 Root 权限的操作，让你在手机上拥有类似 Linux 终端的完整体验。' },
+        'editor': { title: '文本编辑器', desc: '自研的高性能文本编辑器（EditView），采用 gap buffer 缓冲技术。支持 16 种编程语言的语法高亮、无限撤销重做、查找替换、括号自动配对以及剪贴板面板。无论是修改配置文件还是编写代码，都能得心应手。' },
+        'archive': { title: '压缩包 & 查看器', desc: '全能的文件查看器工具箱。支持 ZIP、7Z、TAR、TAR.GZ、TAR.BZ2 等多种压缩格式的浏览和解压。内置了图片查看器（缩放拖动）、视频播放器、音乐播放器、字体预览，甚至还有十六进制（Hex）查看器和二进制 XML 编辑器。' },
+        'ui': { title: '液态玻璃 UI', desc: '提供 8 种精心调校的玻璃调色板与液态玻璃视觉效果。配合 5 套主题（深色、浅色、蓝色、粉色等），让文件管理器也能拥有极致的视觉体验。在低版本 Android 系统上会自动优雅降级，确保流畅性。' }
     };
 
     const modal = document.getElementById('featureModal');
@@ -901,7 +966,7 @@
         reveals.forEach(el => el.classList.add('is-visible'));
     }
 
-    var cards = document.querySelectorAll('.feature-card, .screenshot-card');
+    var cards = document.querySelectorAll('.feature-card, .screenshot-card, .contributor-item');
     if ('IntersectionObserver' in window) {
         var cardIO = new IntersectionObserver((entries) => {
             entries.forEach(en => {
