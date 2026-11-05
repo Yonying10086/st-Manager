@@ -799,7 +799,7 @@
     });
 
     /* APK 自动检测逻辑 */
-    var CONFIG = { owner: '', repo: '', apkDir: '', siteBase: '' };
+    var CONFIG = { owner: 'Yonying10086', repo: 'st-Manager', apkDir: '', siteBase: '' };
     var APK_NAME_RE = /^ST-Manager-(\d+(?:\.\d+)*)\.apk$/i;
     var GITHUB_URL = 'https://github.com/ekamalbekuulu-ai/ST-Manager';
     var btn = document.getElementById('downloadBtn');
@@ -885,12 +885,49 @@
         .catch(() => null);
     }
 
-    function detectLatest() {
+    // 带重试轮询机制的检测函数
+    function detectLatest(isUserAction) {
         var cfg = resolveConfig();
-        return fromGitHubApi(cfg)
-            .then(r => r || fromManifest(cfg))
-            .then(r => r || fromLatest(cfg))
-            .catch(() => null);
+        var maxAttempts = 4; // 尝试 4 次
+        var attempts = 0;
+        
+        return new Promise((resolve) => {
+            function attempt() {
+                attempts++;
+                
+                // 更新提示文字
+                if (isUserAction) {
+                    hint.classList.add('is-visible');
+                    hintText.textContent = `正在扫描 APK (尝试 ${attempts}/${maxAttempts})...`;
+                } else if (attempts > 1) {
+                    hint.classList.add('is-visible');
+                    hintText.textContent = `正在重试扫描 (${attempts}/${maxAttempts})...`;
+                }
+
+                fromGitHubApi(cfg)
+                    .then(r => r || fromManifest(cfg))
+                    .then(r => r || fromLatest(cfg))
+                    .then(r => {
+                        if (r) {
+                            resolve(r);
+                        } else {
+                            if (attempts < maxAttempts) {
+                                setTimeout(attempt, 1000); // 等待 1 秒后重试
+                            } else {
+                                resolve(null);
+                            }
+                        }
+                    })
+                    .catch(() => {
+                        if (attempts < maxAttempts) {
+                            setTimeout(attempt, 1000);
+                        } else {
+                            resolve(null);
+                        }
+                    });
+            }
+            attempt();
+        });
     }
 
     function applyResult(r) {
@@ -912,8 +949,10 @@
         hintText.textContent = r.version ? '已检测到最新版本 v' + r.version + ' · ' + r.file : '已检测到最新版本 · ' + r.file;
     }
 
+    // 启动时自动检测
     detectLatest().then(applyResult);
 
+    // 点击下载时的检测逻辑
     btn.addEventListener('click', function(e) {
         if (btn.target === '_blank') return;
         e.preventDefault();
@@ -922,7 +961,9 @@
         btnLabel.textContent = '检测中…';
         hint.classList.add('is-visible');
         hintText.textContent = '正在扫描仓库中的 APK…';
-        detectLatest().then(r => {
+        
+        // 传入 true，表示是用户点击触发的，需要显示重试进度
+        detectLatest(true).then(r => {
             applyResult(r);
             if (r) {
                 var a = document.createElement('a');
