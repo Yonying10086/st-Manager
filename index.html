@@ -219,49 +219,21 @@
     }
     .tech-tag:hover{transform:translateY(-2px);box-shadow:0 6px 14px -6px rgba(0,0,0,.12);}
 
-    /* 贡献者名单 */
+    /* 贡献者名单容器 */
     .contributors-section { margin-bottom: 100px; }
-    .contributors-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-        gap: 24px;
-        text-align: center;
-    }
-    .contributor-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-        color: var(--text);
-        transition: transform .3s var(--ease-out);
-    }
-    .contributor-item:hover {
-        transform: translateY(-4px);
-    }
-    .contributor-avatar {
-        width: 64px;
-        height: 64px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    .iframe-container {
         background: var(--surface-2);
-        border: 1px solid rgba(0,0,0,0.04);
-        transition: box-shadow .3s, border-color .3s;
-    }
-    .contributor-item:hover .contributor-avatar {
-        box-shadow: 0 8px 20px rgba(0,113,227,0.2);
-        border-color: var(--blue);
-    }
-    .contributor-name {
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--text);
-        letter-spacing: -0.1px;
-        white-space: nowrap;
+        border-radius: var(--radius-lg);
+        padding: 20px;
         overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 100%;
+    }
+    .iframe-container iframe {
+        width: 100%; 
+        height: 350px; 
+        border: none; 
+        background: transparent; 
+        overflow: hidden;
+        transition: height 0.3s ease;
     }
 
     /* 底部 */
@@ -397,9 +369,8 @@
         .feature-card:hover{transform:none;box-shadow:none;background:var(--surface-2);}
         .tech-section{padding:32px 24px;margin-bottom:56px;}
         
-        .contributors-grid { grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: 16px; }
-        .contributor-avatar { width: 56px; height: 56px; }
-        .contributor-name { font-size: 12px; }
+        .iframe-container { padding: 10px; }
+        .iframe-container iframe { height: 400px; }
 
         .footer-links{flex-direction:column;align-items:flex-start;gap:24px;padding-bottom:calc(28px + env(safe-area-inset-bottom));}
         .contact-info{flex-direction:column;gap:8px;}
@@ -579,10 +550,14 @@
                 <h2 class="section-title">贡献者名单</h2>
                 <p class="section-desc">感谢每一位为 ST 管理器提交代码、提供反馈或分享创意的开发者。</p>
             </div>
-            <div class="contributors-grid" id="contributorsGrid">
-                <div style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary); padding: 20px;">
-                    正在加载贡献者名单...
-                </div>
+            <div class="iframe-container">
+                <!-- 关键代码：嵌入你的独立仓库页面 -->
+                <iframe 
+                    id="contributors-iframe"
+                    src="https://yonying10086.github.io/contributors/" 
+                    scrolling="no"
+                    title="贡献者名单">
+                </iframe>
             </div>
         </section>
 
@@ -644,61 +619,16 @@
 (function(){
     'use strict';
 
-    /* ================= 读取本地 JSON 贡献者名单 ================= */
-    const grid = document.getElementById('contributorsGrid');
-
-    function renderContributors(list, isFallback = false) {
-        if (!grid) return;
-        grid.innerHTML = '';
-
-        if (list.length === 0) {
-            grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--text-secondary);">暂无贡献者数据</div>';
-            return;
+    /* ================= 贡献者 iframe 高度自适应 ================= */
+    window.addEventListener('message', function(event) {
+        if (event.data && event.data.type === 'resize-iframe') {
+            const iframe = document.getElementById('contributors-iframe');
+            if (iframe) {
+                // 加上一点额外的 padding 以防裁切
+                iframe.style.height = (event.data.height + 30) + 'px';
+            }
         }
-
-        list.forEach(user => {
-            const a = document.createElement('a');
-            a.href = 'javascript:void(0)';
-            a.className = 'contributor-item';
-            a.innerHTML = `
-                <img src="${user.avatar}" alt="${user.name}" class="contributor-avatar" loading="lazy" referrerpolicy="no-referrer" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iI2U4ZThlZCIvPjxwYXRoIGQ9Ik0xMiAxMmE0IDQgMCAxIDAgMC04IDQgNCAwIDAgMCAwIDh6bTAgMmMtNCAwLTcgMi03IDR2MmgxNHYtMmMwLTItMy00LTctNHoiIGZpbGw9IiM2ZTZlNzMiLz48L3N2Zz4='">
-                <span class="contributor-name" title="${user.name}">${user.name}</span>
-            `;
-            grid.appendChild(a);
-        });
-
-        if (isFallback) {
-            const tip = document.createElement('div');
-            tip.style.gridColumn = '1 / -1';
-            tip.style.textAlign = 'center';
-            tip.style.fontSize = '12px';
-            tip.style.color = '#a1a1a6';
-            tip.style.marginTop = '16px';
-            tip.textContent = '* 使用本地缓存数据（GitHub Action 正在同步最新名单）';
-            grid.appendChild(tip);
-        }
-    }
-
-    async function fetchContributors() {
-        try {
-            // 读取由 GitHub Actions 生成的本地文件
-            const response = await fetch('./contributors.json');
-            if (!response.ok) throw new Error('未找到 contributors.json');
-            const list = await response.json();
-            renderContributors(list);
-        } catch (error) {
-            console.error('读取失败:', error);
-            // 兜底数据
-            renderContributors([
-                { name: 'Cuteyoo', avatar: 'https://shp.qpic.cn/collector/2667900199/10fb5a06-9830-4b4c-a27e-6e46973278db/0' },
-                { name: '商心慈.', avatar: 'https://shp.qpic.cn/collector/2667900199/925b96f4-3743-47c6-92ff-69a8fa26dea0/0' }
-            ], true);
-        }
-    }
-
-    // 启动读取
-    fetchContributors();
-
+    });
 
     /* 功能数据 */
     const featureData = {
@@ -909,7 +839,7 @@
         reveals.forEach(el => el.classList.add('is-visible'));
     }
 
-    var cards = document.querySelectorAll('.feature-card, .screenshot-card, .contributor-item');
+    var cards = document.querySelectorAll('.feature-card, .screenshot-card');
     if ('IntersectionObserver' in window) {
         var cardIO = new IntersectionObserver((entries) => {
             entries.forEach(en => {
