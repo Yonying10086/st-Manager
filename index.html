@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<!-- 关闭 Referer 防盗链拦截 -->
+<meta name="referrer" content="no-referrer">
 <title>ST 管理器 · 安卓逆向工具箱</title>
 <style>
     /* ================= 基础设计系统 ================= */
@@ -571,16 +573,15 @@
             </div>
         </section>
 
-        <!-- ================= 新增：贡献者名单 ================= -->
+        <!-- ================= 贡献者名单 ================= -->
         <section class="reveal contributors-section" id="contributors">
             <div class="section-head">
                 <h2 class="section-title">贡献者名单</h2>
                 <p class="section-desc">感谢每一位为 ST 管理器提交代码、提供反馈或分享创意的开发者。</p>
             </div>
             <div class="contributors-grid" id="contributorsGrid">
-                <!-- 这里的头像和名字由下面的 JS 自动从微云抓取并生成 -->
                 <div style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary); padding: 20px;">
-                    正在从微云同步最新贡献者名单...
+                    正在加载贡献者名单...
                 </div>
             </div>
         </section>
@@ -643,86 +644,12 @@
 (function(){
     'use strict';
 
-    /* ================= 自动解析微云贡献者名单 ================= */
-    // 微云分享链接的 API 提取地址 (通过 allorigins 跨域代理)
-    const WEIYUN_URL = 'https://sharechain.qq.com/07280414a680dbf2b32985ccf38aaba7?qq_aio_chat_type=2';
-    const PROXY_URL = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(WEIYUN_URL);
-
+    /* ================= 读取本地 JSON 贡献者名单 ================= */
     const grid = document.getElementById('contributorsGrid');
-
-    async function fetchContributors() {
-        try {
-            const response = await fetch(PROXY_URL);
-            if (!response.ok) throw new Error('网络请求失败');
-            const htmlText = await response.text();
-
-            // 1. 提取包含 html_content 的 JSON 数据
-            // 微云的数据通常在这个 JSON 字符串里面
-            const match = htmlText.match(/"html_content":"(.*?)","share_flag"/);
-            let rawHtml = '';
-            
-            if (match && match[1]) {
-                // 提取出来的是转义过的字符串，需要还原为正常 HTML
-                rawHtml = match[1].replace(/\\u003C/g, '<').replace(/\\u003E/g, '>').replace(/\\"/g, '"').replace(/\\n/g, '');
-            } else {
-                // 兼容备用正则（防止格式微小变动）
-                const fallbackMatch = htmlText.match(/<div class="html_content">(.*?)<\/div>/s);
-                if (fallbackMatch) rawHtml = fallbackMatch[1];
-            }
-
-            if (!rawHtml) {
-                throw new Error('未找到 html_content 数据');
-            }
-
-            // 2. 使用 DOMParser 解析提取到的 HTML 字符串
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(rawHtml, 'text/html');
-            
-            // 提取所有的图片和文本
-            const contributors = [];
-            const imgs = doc.querySelectorAll('img');
-            
-            imgs.forEach(img => {
-                const src = img.getAttribute('src');
-                if (!src) return;
-
-                // 找名字：通常在 img 的父级或者前面的兄弟节点中寻找以 @ 开头的文本
-                let name = '匿名贡献者';
-                const parentText = img.parentElement.textContent || '';
-                const prevText = img.previousElementSibling ? img.previousElementSibling.textContent : '';
-                const combinedText = parentText + prevText;
-                
-                // 匹配 "@名字"
-                const nameMatch = combinedText.match(/@([^\s<]+)/);
-                if (nameMatch) {
-                    name = nameMatch[1].trim();
-                }
-
-                // 修复腾讯图片的 http 为 https 避免浏览器拦截
-                let avatarUrl = src.replace(/^http:\/\//i, 'https://');
-
-                contributors.push({ name, avatar: avatarUrl });
-            });
-
-            // 去重（防止同一个头像被多次提取）
-            const uniqueContributors = Array.from(new Map(contributors.map(item => [item.avatar, item])).values());
-
-            // 3. 渲染到页面
-            renderContributors(uniqueContributors);
-
-        } catch (error) {
-            console.error('获取微云数据失败:', error);
-            // 如果拉取失败，回退到本地硬编码的保底数据，保证页面不空
-            renderContributors([
-                { name: 'Cuteyoo', avatar: 'https://shp.qpic.cn/collector/2667900199/10fb5a06-9830-4b4c-a27e-6e46973278db/0' },
-                { name: '商心慈.', avatar: 'https://shp.qpic.cn/collector/2667900199/925b96f4-3743-47c6-92ff-69a8fa26dea0/0' }
-            ], true);
-        }
-    }
 
     function renderContributors(list, isFallback = false) {
         if (!grid) return;
-        grid.innerHTML = ''; // 清空加载提示
+        grid.innerHTML = '';
 
         if (list.length === 0) {
             grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--text-secondary);">暂无贡献者数据</div>';
@@ -734,13 +661,12 @@
             a.href = 'javascript:void(0)';
             a.className = 'contributor-item';
             a.innerHTML = `
-                <img src="${user.avatar}" alt="${user.name}" class="contributor-avatar" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iI2U4ZThlZCIvPjxwYXRoIGQ9Ik0xMiAxMmE0IDQgMCAxIDAgMC04IDQgNCAwIDAgMCAwIDh6bTAgMmMtNCAwLTcgMi03IDR2MmgxNHYtMmMwLTItMy00LTctNHoiIGZpbGw9IiM2ZTZlNzMiLz48L3N2Zz4='">
+                <img src="${user.avatar}" alt="${user.name}" class="contributor-avatar" loading="lazy" referrerpolicy="no-referrer" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iI2U4ZThlZCIvPjxwYXRoIGQ9Ik0xMiAxMmE0IDQgMCAxIDAgMC04IDQgNCAwIDAgMCAwIDh6bTAgMmMtNCAwLTcgMi03IDR2MmgxNHYtMmMwLTItMy00LTctNHoiIGZpbGw9IiM2ZTZlNzMiLz48L3N2Zz4='">
                 <span class="contributor-name" title="${user.name}">${user.name}</span>
             `;
             grid.appendChild(a);
         });
 
-        // 如果是回退数据，加个不明显的小提示
         if (isFallback) {
             const tip = document.createElement('div');
             tip.style.gridColumn = '1 / -1';
@@ -748,12 +674,29 @@
             tip.style.fontSize = '12px';
             tip.style.color = '#a1a1a6';
             tip.style.marginTop = '16px';
-            tip.textContent = '* 使用本地缓存数据，未能从微云实时同步';
+            tip.textContent = '* 使用本地缓存数据（GitHub Action 正在同步最新名单）';
             grid.appendChild(tip);
         }
     }
 
-    // 启动数据抓取
+    async function fetchContributors() {
+        try {
+            // 读取由 GitHub Actions 生成的本地文件
+            const response = await fetch('./contributors.json');
+            if (!response.ok) throw new Error('未找到 contributors.json');
+            const list = await response.json();
+            renderContributors(list);
+        } catch (error) {
+            console.error('读取失败:', error);
+            // 兜底数据
+            renderContributors([
+                { name: 'Cuteyoo', avatar: 'https://shp.qpic.cn/collector/2667900199/10fb5a06-9830-4b4c-a27e-6e46973278db/0' },
+                { name: '商心慈.', avatar: 'https://shp.qpic.cn/collector/2667900199/925b96f4-3743-47c6-92ff-69a8fa26dea0/0' }
+            ], true);
+        }
+    }
+
+    // 启动读取
     fetchContributors();
 
 
