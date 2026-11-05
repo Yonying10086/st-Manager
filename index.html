@@ -231,6 +231,8 @@
         transition: transform .3s var(--ease-out);
     }
     .contributor-item:hover { transform: translateY(-4px); }
+    
+    /* 普通贡献者头像 */
     .contributor-avatar {
         width: 64px; height: 64px; border-radius: 50%;
         object-fit: cover; margin-bottom: 10px;
@@ -243,10 +245,40 @@
         box-shadow: 0 8px 20px rgba(0,113,227,0.2);
         border-color: var(--blue);
     }
+    
+    /* ====== 开发者专属特效 ====== */
+    .contributor-item.is-dev .contributor-avatar {
+        border: 2px solid var(--blue);
+        box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15), 0 8px 24px rgba(0, 113, 227, 0.3);
+        width: 72px; height: 72px; /* 开发者头像稍微大一点点 */
+        margin-top: -4px; /* 补偿变大的高度 */
+    }
+    .contributor-item.is-dev:hover .contributor-avatar {
+        box-shadow: 0 0 0 6px rgba(0, 113, 227, 0.25), 0 12px 28px rgba(0, 113, 227, 0.4);
+    }
+    
     .contributor-name {
         font-size: 13px; font-weight: 500; color: var(--text);
         letter-spacing: -0.1px; white-space: nowrap;
         overflow: hidden; text-overflow: ellipsis; max-width: 100%;
+    }
+    .contributor-item.is-dev .contributor-name {
+        font-weight: 700;
+        color: var(--blue);
+    }
+
+    /* 开发者头衔标签 */
+    .contributor-title {
+        font-size: 10px;
+        font-weight: 600;
+        color: #fff;
+        background: var(--blue);
+        padding: 2px 8px;
+        border-radius: 100px;
+        margin-top: 4px;
+        letter-spacing: 0.2px;
+        box-shadow: 0 2px 6px rgba(0,113,227,0.3);
+        transform: scale(0.95);
     }
 
     /* 底部 */
@@ -382,8 +414,9 @@
         .feature-card:hover{transform:none;box-shadow:none;background:var(--surface-2);}
         .tech-section{padding:32px 24px;margin-bottom:56px;}
         
-        .contributors-grid { grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: 16px; }
-        .contributor-avatar { width: 56px; height: 56px; }
+        .contributors-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 20px; }
+        .contributor-avatar { width: 60px; height: 60px; }
+        .contributor-item.is-dev .contributor-avatar { width: 66px; height: 66px; }
         .contributor-name { font-size: 12px; }
 
         .footer-links{flex-direction:column;align-items:flex-start;gap:24px;padding-bottom:calc(28px + env(safe-area-inset-bottom));}
@@ -566,7 +599,7 @@
             </div>
             <div class="contributors-grid" id="contributorsGrid">
                 <div style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary); padding: 20px;">
-                    正在直接拉取并解析独立网页...
+                    正在拉取并解析独立网页...
                 </div>
             </div>
         </section>
@@ -629,87 +662,77 @@
 (function(){
     'use strict';
 
-    /* ================= 直接抓取并解析独立网页 ================= */
+    /* ================= 直接读取你的 avatars 文件夹 ================= */
     const grid = document.getElementById('contributorsGrid');
+    // 这里直接写死你的 GitHub 用户名和仓库名，100% 不会错
+    const GITHUB_USER = 'yonying10086';
+    const GITHUB_REPO = 'contributors'; 
+    const FOLDER_NAME = 'avatars';
+    const DEV_NAME = 'ovo'; // 开发者名字（忽略大小写匹配）
 
-    function renderContributors(list) {
-        if (!grid) return;
-        grid.innerHTML = '';
-
-        if (list.length === 0) {
-            grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--text-secondary);">暂无贡献者数据</div>';
-            return;
-        }
-
-        list.forEach(user => {
-            const a = document.createElement('a');
-            a.href = 'javascript:void(0)';
-            a.className = 'contributor-item';
-            a.innerHTML = `
-                <img src="${user.avatar}" alt="${user.name}" class="contributor-avatar" loading="lazy" referrerpolicy="no-referrer" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iI2U4ZThlZCIvPjxwYXRoIGQ9Ik0xMiAxMmE0IDQgMCAxIDAgMC04IDQgNCAwIDAgMCAwIDh6bTAgMmMtNCAwLTcgMi03IDR2MmgxNHYtMmMwLTItMy00LTctNHoiIGZpbGw9IiM2ZTZlNzMiLz48L3N2Zz4='">
-                <span class="contributor-name" title="${user.name}">${user.name}</span>
-            `;
-            grid.appendChild(a);
-        });
-    }
-
-    async function fetchAndParseContributors() {
+    async function fetchContributorsFromAPI() {
         try {
-            // 直接请求独立仓库，完全没有任何微云的影子
-            const targetUrl = 'https://yonying10086.github.io/contributors/?t=' + Date.now();
-            const response = await fetch(targetUrl);
+            // 请求你独立仓库的 avatars 文件夹列表，加上时间戳防缓存
+            const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${FOLDER_NAME}?t=${new Date().getTime()}`;
+            const response = await fetch(apiUrl);
             
             if (!response.ok) throw new Error('网络请求失败');
-            const htmlText = await response.text();
+            const files = await response.json();
 
-            // 解析返回的网页源码
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(htmlText, 'text/html');
-            
-            // 查找独立网页里渲染好的卡片
-            const contributors = [];
-            
-            // 尝试多种可能的结构
-            const userCards = doc.querySelectorAll('.user-card');
-            const imgs = doc.querySelectorAll('img');
+            if (!Array.isArray(files)) throw new Error('API 返回格式错误');
 
-            if (userCards.length > 0) {
-                userCards.forEach(card => {
-                    const img = card.querySelector('img');
-                    const nameSpan = card.querySelector('.name');
-                    if (img) {
-                        contributors.push({
-                            avatar: img.getAttribute('src'),
-                            name: nameSpan ? nameSpan.textContent.trim() : '未知'
-                        });
-                    }
-                });
-            } else if (imgs.length > 0) {
-                imgs.forEach(img => {
-                    const src = img.getAttribute('src');
-                    // 粗略过滤掉图标等非头像图片
-                    if (src && !src.includes('icon')) {
-                        let name = '贡献者';
-                        if (img.nextElementSibling) name = img.nextElementSibling.textContent.trim();
-                        contributors.push({ avatar: src, name });
-                    }
-                });
+            let contributors = [];
+            files.forEach(file => {
+                if (/\.(jpg|jpeg|png|webp|gif)$/i.test(file.name)) {
+                    contributors.push({
+                        name: file.name.replace(/\.[^/.]+$/, ""),
+                        avatar: file.download_url + '?t=' + new Date().getTime(),
+                        isDev: false
+                    });
+                }
+            });
+
+            // ====== 关键修改：找出开发者，排第一，加称号 ======
+            const devIndex = contributors.findIndex(c => c.name.toLowerCase() === DEV_NAME);
+            let devUser = null;
+
+            if (devIndex > -1) {
+                devUser = contributors.splice(devIndex, 1)[0]; // 从原数组移出
+                devUser.name = 'ovO'; // 强制显示为精准的大小写
+                devUser.isDev = true; // 打上开发者标记
+                devUser.title = '软件开发者'; // 加上称号
+                contributors.unshift(devUser); // 放到第一的位置
             }
 
             if (contributors.length > 0) {
-                renderContributors(contributors);
+                grid.innerHTML = '';
+                contributors.forEach(user => {
+                    const a = document.createElement('a');
+                    a.href = 'javascript:void(0)';
+                    // 如果是开发者，追加 is-dev 类名，触发专属 CSS 特效
+                    a.className = 'contributor-item' + (user.isDev ? ' is-dev' : '');
+                    
+                    let titleHTML = user.title ? `<span class="contributor-title">${user.title}</span>` : '';
+
+                    a.innerHTML = `
+                        <img src="${user.avatar}" alt="${user.name}" class="contributor-avatar" loading="lazy" referrerpolicy="no-referrer" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iI2U4ZThlZCIvPjxwYXRoIGQ9Ik0xMiAxMmE0IDQgMCAxIDAgMC04IDQgNCAwIDAgMCAwIDh6bTAgMmMtNCAwLTcgMi03IDR2MmgxNHYtMmMwLTItMy00LTctNHoiIGZpbGw9IiM2ZTZlNzMiLz48L3N2Zz4='">
+                        <span class="contributor-name" title="${user.name}">${user.name}</span>
+                        ${titleHTML}
+                    `;
+                    grid.appendChild(a);
+                });
             } else {
-                throw new Error('未从网页中找到用户卡片或图片');
+                grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--text-secondary);">avatars 文件夹里还没有图片</div>';
             }
 
         } catch (error) {
-            console.error('解析失败:', error);
-            grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:#ff3b30;">名单加载失败，请检查独立网页是否已部署完成</div>';
+            console.error('获取失败:', error);
+            grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:#ff3b30;">名单加载失败，请检查仓库名或文件夹名是否正确</div>';
         }
     }
 
-    // 启动直接解析
-    fetchAndParseContributors();
+    // 启动直接读取 API
+    fetchContributorsFromAPI();
 
     /* 功能数据 */
     const featureData = {
