@@ -232,6 +232,7 @@
     }
     .contributor-item:hover { transform: translateY(-4px); }
     
+    /* 普通贡献者头像 */
     .contributor-avatar {
         width: 64px; height: 64px; border-radius: 50%;
         object-fit: cover; margin-bottom: 10px;
@@ -249,8 +250,8 @@
     .contributor-item.is-dev .contributor-avatar {
         border: 2px solid var(--blue);
         box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15), 0 8px 24px rgba(0, 113, 227, 0.3);
-        width: 72px; height: 72px;
-        margin-top: -4px;
+        width: 72px; height: 72px; /* 开发者头像稍微大一点点 */
+        margin-top: -4px; /* 补偿变大的高度 */
     }
     .contributor-item.is-dev:hover .contributor-avatar {
         box-shadow: 0 0 0 6px rgba(0, 113, 227, 0.25), 0 12px 28px rgba(0, 113, 227, 0.4);
@@ -268,9 +269,15 @@
 
     /* 开发者头衔标签 */
     .contributor-title {
-        font-size: 10px; font-weight: 600; color: #fff; background: var(--blue);
-        padding: 2px 8px; border-radius: 100px; margin-top: 4px;
-        letter-spacing: 0.2px; box-shadow: 0 2px 6px rgba(0,113,227,0.3);
+        font-size: 10px;
+        font-weight: 600;
+        color: #fff;
+        background: var(--blue);
+        padding: 2px 8px;
+        border-radius: 100px;
+        margin-top: 4px;
+        letter-spacing: 0.2px;
+        box-shadow: 0 2px 6px rgba(0,113,227,0.3);
         transform: scale(0.95);
     }
 
@@ -552,7 +559,7 @@
                 <div class="feature-card" data-feature="editor">
                     <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M4 4h12l4 4v12H4z"/><path d="M16 4v4h4M8 12h8M8 16h5"/></svg></div>
                     <div class="feature-title">文本编辑器</div>
-                    <div class="feature-desc">自研 EditView，16 种语法高亮，撤销重做、查找替换、括号配对。</div>
+                    <div class="feature-desc">MT管理器同款文本编辑器内核，16 种语法高亮，撤销重做、查找替换、括号配对。</div>
                 </div>
                 <div class="feature-card" data-feature="archive">
                     <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/><path d="M12 11v4M10 13h4"/></svg></div>
@@ -657,13 +664,15 @@
 
     /* ================= 直接读取你的 avatars 文件夹 ================= */
     const grid = document.getElementById('contributorsGrid');
+    // 这里直接写死你的 GitHub 用户名和仓库名，100% 不会错
     const GITHUB_USER = 'yonying10086';
     const GITHUB_REPO = 'contributors'; 
     const FOLDER_NAME = 'avatars';
-    const DEV_NAME = 'ovo';
+    const DEV_NAME = 'ovo'; // 开发者名字（忽略大小写匹配）
 
     async function fetchContributorsFromAPI() {
         try {
+            // 请求你独立仓库的 avatars 文件夹列表，加上时间戳防缓存
             const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${FOLDER_NAME}?t=${new Date().getTime()}`;
             const response = await fetch(apiUrl);
             
@@ -683,15 +692,16 @@
                 }
             });
 
+            // ====== 关键修改：找出开发者，排第一，加称号 ======
             const devIndex = contributors.findIndex(c => c.name.toLowerCase() === DEV_NAME);
             let devUser = null;
 
             if (devIndex > -1) {
-                devUser = contributors.splice(devIndex, 1)[0];
-                devUser.name = 'ovO';
-                devUser.isDev = true;
-                devUser.title = '软件开发者';
-                contributors.unshift(devUser);
+                devUser = contributors.splice(devIndex, 1)[0]; // 从原数组移出
+                devUser.name = 'ovO'; // 强制显示为精准的大小写
+                devUser.isDev = true; // 打上开发者标记
+                devUser.title = '软件开发者'; // 加上称号
+                contributors.unshift(devUser); // 放到第一的位置
             }
 
             if (contributors.length > 0) {
@@ -699,6 +709,7 @@
                 contributors.forEach(user => {
                     const a = document.createElement('a');
                     a.href = 'javascript:void(0)';
+                    // 如果是开发者，追加 is-dev 类名，触发专属 CSS 特效
                     a.className = 'contributor-item' + (user.isDev ? ' is-dev' : '');
                     
                     let titleHTML = user.title ? `<span class="contributor-title">${user.title}</span>` : '';
@@ -720,6 +731,7 @@
         }
     }
 
+    // 启动直接读取 API
     fetchContributorsFromAPI();
 
     /* 功能数据 */
@@ -786,12 +798,10 @@
         });
     });
 
-    /* ================= 极限加固的 APK 自动检测 ================= */
+    /* APK 自动检测逻辑 */
     var CONFIG = { owner: '', repo: '', apkDir: '', siteBase: '' };
-    // 极度宽容的正则，连 ST-Manager-1.2(1).apk 都能认出来
-    var APK_NAME_RE = /ST-Manager-(\d+(?:\.\d+)*).*\.apk$/i;
+    var APK_NAME_RE = /^ST-Manager-(\d+(?:\.\d+)*)\.apk$/i;
     var GITHUB_URL = 'https://github.com/ekamalbekuulu-ai/ST-Manager';
-    
     var btn = document.getElementById('downloadBtn');
     var btnLabel = btn.querySelector('.btn-label');
     var iconPath = document.getElementById('downloadIcon');
@@ -809,30 +819,37 @@
     }
 
     function resolveConfig() {
-        // 【终极修正】：强制写死你的用户名和仓库名，不管部署到哪个域名都不会失效！
-        var cfg = {
-            owner: 'Yonying10086',
-            repo: 'st-Manager',
-            apkDir: '',
-            siteBase: location.pathname.substring(0, location.pathname.lastIndexOf('/') + 1)
-        };
+        var cfg = { owner: CONFIG.owner, repo: CONFIG.repo, apkDir: CONFIG.apkDir.replace(/^\/+|\/+$/g, ''), siteBase: CONFIG.siteBase };
+        if (!cfg.owner || !cfg.repo) {
+            var host = location.hostname;
+            if (host.endsWith('.github.io')) {
+                cfg.owner = cfg.owner || host.replace(/\.github\.io$/, '');
+                var seg = location.pathname.split('/').filter(Boolean);
+                if (!cfg.repo) cfg.repo = seg.length > 0 ? seg[0] : host;
+            }
+        }
+        if (!cfg.siteBase) {
+            var p = location.pathname;
+            if (p.endsWith('/')) cfg.siteBase = p;
+            else {
+                var lastSlash = p.lastIndexOf('/');
+                var lastSeg = p.substring(lastSlash + 1);
+                cfg.siteBase = lastSeg.indexOf('.') >= 0 ? p.substring(0, lastSlash + 1) : p + '/';
+            }
+        }
+        if (!cfg.siteBase.endsWith('/')) cfg.siteBase += '/';
         return cfg;
     }
 
-    function buildDownloadUrl(cfg, filename) { return cfg.siteBase + filename; }
+    function buildDownloadUrl(cfg, filename) { return cfg.siteBase + (cfg.apkDir ? cfg.apkDir + '/' : '') + filename; }
 
     function fromGitHubApi(cfg) {
-        var url = 'https://api.github.com/repos/' + cfg.owner + '/' + cfg.repo + '/contents';
+        if (!cfg.owner || !cfg.repo) return Promise.resolve(null);
+        var url = 'https://api.github.com/repos/' + cfg.owner + '/' + cfg.repo + '/contents' + (cfg.apkDir ? '/' + cfg.apkDir : '');
         return fetch(url, { headers: { 'Accept': 'application/vnd.github+json' }, cache: 'no-store' })
-        .then(res => { 
-            if (!res.ok) {
-                if (res.status === 403) throw new Error('GitHub API 触发限流，请稍后再试');
-                throw new Error('API 请求失败'); 
-            }
-            return res.json(); 
-        })
+        .then(res => { if (!res.ok) throw new Error('api'); return res.json(); })
         .then(list => {
-            if (!Array.isArray(list)) throw new Error('API 格式错误');
+            if (!Array.isArray(list)) throw new Error('bad');
             var best = null;
             list.forEach(item => {
                 if (!item || item.type !== 'file') return;
@@ -841,7 +858,24 @@
                 if (!best || compareVersion(m[1], best.version) > 0) best = { version: m[1], file: item.name };
             });
             return best ? { version: best.version, file: best.file, url: buildDownloadUrl(cfg, best.file) } : null;
-        }).catch(err => { throw err; });
+        }).catch(() => null);
+    }
+
+    function fromManifest(cfg) {
+        return fetch(cfg.siteBase + 'apk-manifest.json', { cache: 'no-store' })
+        .then(res => { if (!res.ok) throw new Error('no'); return res.json(); })
+        .then(list => {
+            if (!Array.isArray(list)) throw new Error('bad');
+            var best = null;
+            list.forEach(item => {
+                var name = typeof item === 'string' ? item : (item && typeof item.file === 'string') ? item.file : null;
+                if (!name) return;
+                var m = name.match(APK_NAME_RE);
+                if (!m) return;
+                if (!best || compareVersion(m[1], best.version) > 0) best = { version: m[1], file: name };
+            });
+            return best ? { version: best.version, file: best.file, url: buildDownloadUrl(cfg, best.file) } : null;
+        }).catch(() => null);
     }
 
     function fromLatest(cfg) {
@@ -854,34 +888,21 @@
     function detectLatest() {
         var cfg = resolveConfig();
         return fromGitHubApi(cfg)
-            .catch(err => {
-                console.warn('API 获取失败，正在尝试兜底探测:', err.message);
-                return fromLatest(cfg);
-            })
+            .then(r => r || fromManifest(cfg))
+            .then(r => r || fromLatest(cfg))
             .catch(() => null);
     }
 
-    function applyResult(r, errMsg) {
-        if (errMsg) {
-            btn.href = GITHUB_URL; btn.target = '_blank';
-            btnLabel.textContent = '前往 GitHub';
-            btn.classList.remove('is-loading');
-            iconPath.innerHTML = '<path d="M7 17L17 7M17 7H9M17 7v8"/>';
-            hint.classList.add('is-visible', 'is-error');
-            hintText.textContent = errMsg;
-            return;
-        }
-
+    function applyResult(r) {
         if (!r) {
             btn.href = GITHUB_URL; btn.target = '_blank'; btn.removeAttribute('download');
             btnLabel.textContent = '前往 GitHub';
             btn.classList.remove('is-loading');
             iconPath.innerHTML = '<path d="M7 17L17 7M17 7H9M17 7v8"/>';
             hint.classList.add('is-visible', 'is-error');
-            hintText.textContent = '未找到 APK，请确保文件在根目录';
+            hintText.textContent = '未检测到本地 APK，可前往 GitHub 获取';
             return;
         }
-        
         btn.href = r.url; btn.target = ''; btn.setAttribute('download', r.file);
         btnLabel.textContent = '立即下载';
         btn.classList.remove('is-loading');
@@ -891,7 +912,7 @@
         hintText.textContent = r.version ? '已检测到最新版本 v' + r.version + ' · ' + r.file : '已检测到最新版本 · ' + r.file;
     }
 
-    detectLatest().then(r => applyResult(r, null)).catch(err => applyResult(null, err.message));
+    detectLatest().then(applyResult);
 
     btn.addEventListener('click', function(e) {
         if (btn.target === '_blank') return;
@@ -901,15 +922,14 @@
         btnLabel.textContent = '检测中…';
         hint.classList.add('is-visible');
         hintText.textContent = '正在扫描仓库中的 APK…';
-        
         detectLatest().then(r => {
-            applyResult(r, null);
+            applyResult(r);
             if (r) {
                 var a = document.createElement('a');
                 a.href = r.url; a.download = r.file; a.style.display = 'none';
                 document.body.appendChild(a); a.click(); document.body.removeChild(a);
             }
-        }).catch(err => applyResult(null, err.message));
+        });
     });
 
     /* 滚动动画 */
