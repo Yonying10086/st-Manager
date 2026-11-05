@@ -566,7 +566,7 @@
             </div>
             <div class="contributors-grid" id="contributorsGrid">
                 <div style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary); padding: 20px;">
-                    正在拉取并解析独立网页...
+                    正在直接拉取并解析独立网页...
                 </div>
             </div>
         </section>
@@ -655,7 +655,7 @@
 
     async function fetchAndParseContributors() {
         try {
-            // 直接请求你独立仓库的 URL，加时间戳防缓存
+            // 直接请求独立仓库，完全没有任何微云的影子
             const targetUrl = 'https://yonying10086.github.io/contributors/?t=' + Date.now();
             const response = await fetch(targetUrl);
             
@@ -667,31 +667,44 @@
             const doc = parser.parseFromString(htmlText, 'text/html');
             
             // 查找独立网页里渲染好的卡片
-            const userCards = doc.querySelectorAll('.user-card');
             const contributors = [];
+            
+            // 尝试多种可能的结构
+            const userCards = doc.querySelectorAll('.user-card');
+            const imgs = doc.querySelectorAll('img');
 
-            userCards.forEach(card => {
-                const img = card.querySelector('img');
-                const nameSpan = card.querySelector('.name');
-                
-                if (img && nameSpan) {
-                    // 提取图片的 src (如果有时间戳，保留它或者替换掉)
-                    const avatar = img.getAttribute('src');
-                    const name = nameSpan.textContent.trim();
-                    contributors.push({ name, avatar });
-                }
-            });
+            if (userCards.length > 0) {
+                userCards.forEach(card => {
+                    const img = card.querySelector('img');
+                    const nameSpan = card.querySelector('.name');
+                    if (img) {
+                        contributors.push({
+                            avatar: img.getAttribute('src'),
+                            name: nameSpan ? nameSpan.textContent.trim() : '未知'
+                        });
+                    }
+                });
+            } else if (imgs.length > 0) {
+                imgs.forEach(img => {
+                    const src = img.getAttribute('src');
+                    // 粗略过滤掉图标等非头像图片
+                    if (src && !src.includes('icon')) {
+                        let name = '贡献者';
+                        if (img.nextElementSibling) name = img.nextElementSibling.textContent.trim();
+                        contributors.push({ avatar: src, name });
+                    }
+                });
+            }
 
             if (contributors.length > 0) {
                 renderContributors(contributors);
             } else {
-                throw new Error('未从网页中找到用户卡片');
+                throw new Error('未从网页中找到用户卡片或图片');
             }
 
         } catch (error) {
             console.error('解析失败:', error);
-            // 如果失败（比如独立仓库还没部署好），显示提示或兜底
-            grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:#ff3b30;">名单加载失败，请刷新重试</div>';
+            grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:#ff3b30;">名单加载失败，请检查独立网页是否已部署完成</div>';
         }
     }
 
