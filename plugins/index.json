@@ -1,7 +1,11 @@
 {
   "version": 1,
-  "updated": "2026-11-07T07:36:05Z",
+  "updated": "2026-11-07T08:05:00Z",
   "source": "ST Manager cloud plugin market",
+  "categories": {
+    "language": ["JavaScript", "Shell", "Python"],
+    "usage": ["文件", "系统", "界面", "网络", "AI"]
+  },
   "plugins": [
     {
       "id": "com.st.demo.rename",
@@ -35,6 +39,28 @@
       "size": 5783,
       "permissions": ["mcp.bridge", "files.read", "files.path", "ui.page"],
       "tags": ["JavaScript", "AI", "界面"]
+    },
+    {
+      "id": "com.st.cloud.cleanup",
+      "name": "空目录清理",
+      "version": "1.0.0",
+      "author": "ST 云端示例",
+      "description": "递归列出当前目录下的空文件夹，Shell 实现",
+      "download": "https://st.new.tg/plugins/com.st.cloud.cleanup.zip",
+      "size": 796,
+      "permissions": ["files.read", "files.path", "shell.exec", "ui.toast"],
+      "tags": ["Shell", "文件"]
+    },
+    {
+      "id": "com.st.cloud.devinfo",
+      "name": "设备信息面板",
+      "version": "1.0.0",
+      "author": "ST 云端示例",
+      "description": "一条命令读出机型 / SDK / ABI / 内核",
+      "download": "https://st.new.tg/plugins/com.st.cloud.devinfo.zip",
+      "size": 716,
+      "permissions": ["device.info", "shell.exec", "ui.toast"],
+      "tags": ["Shell", "系统"]
     }
   ]
 }
