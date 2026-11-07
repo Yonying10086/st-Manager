@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "updated": "2026-11-07T07:36:05Z",
+  "source": "ST Manager cloud plugin market",
+  "plugins": [
+    {
+      "id": "com.st.demo.rename",
+      "name": "批量重命名",
+      "version": "1.0.0",
+      "author": "ST 官方示例",
+      "description": "按规则批量重命名文件，支持页面和长按动作",
+      "download": "https://st.new.tg/plugins/com.st.demo.rename.zip",
+      "size": 7456,
+      "permissions": ["files.read", "files.path", "files.rename", "ui.input", "ui.toast", "ui.page"],
+      "tags": ["JavaScript", "文件", "界面"]
+    },
+    {
+      "id": "com.st.demo.stats",
+      "name": "目录统计",
+      "version": "1.0.2",
+      "author": "ST 官方示例",
+      "description": "统计目录文件数量、总大小并按类型排行",
+      "download": "https://st.new.tg/plugins/com.st.demo.stats.zip",
+      "size": 3368,
+      "permissions": ["files.read", "files.path", "ui.page", "ui.theme", "ui.toast"],
+      "tags": ["JavaScript", "文件", "系统"]
+    },
+    {
+      "id": "com.st.demo.mcp",
+      "name": "MCP 工具注册",
+      "version": "1.1.0",
+      "author": "ST 官方示例",
+      "description": "演示插件注册 MCP 工具供 AI 调用",
+      "download": "https://st.new.tg/plugins/com.st.demo.mcp.zip",
+      "size": 5783,
+      "permissions": ["mcp.bridge", "files.read", "files.path", "ui.page"],
+      "tags": ["JavaScript", "AI", "界面"]
+    }
+  ]
+}
