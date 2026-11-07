@@ -28,7 +28,7 @@
       "author": "ST 官方",
       "description": "把文本编码成 Base64（UTF-8 安全，中文不会乱码）",
       "download": "https://st.new.tg/plugins/com.st.tool.b64encode.zip",
-      "size": 7056,
+      "size": 7279,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -48,7 +48,7 @@
       "author": "ST 官方",
       "description": "把 Base64 还原成文本，自动忽略换行和空格",
       "download": "https://st.new.tg/plugins/com.st.tool.b64decode.zip",
-      "size": 7076,
+      "size": 7300,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -68,7 +68,7 @@
       "author": "ST 官方",
       "description": "把文本转成百分号编码，适合拼接口参数",
       "download": "https://st.new.tg/plugins/com.st.tool.urlencode.zip",
-      "size": 7062,
+      "size": 7286,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -88,7 +88,7 @@
       "author": "ST 官方",
       "description": "文本 ↔ 十六进制码点，用于看不可见字符",
       "download": "https://st.new.tg/plugins/com.st.tool.hexencode.zip",
-      "size": 7064,
+      "size": 7288,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -108,7 +108,7 @@
       "author": "ST 官方",
       "description": "把中文转成 \\uXXXX 形式，或把转义还原",
       "download": "https://st.new.tg/plugins/com.st.tool.unicode.zip",
-      "size": 7115,
+      "size": 7336,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -128,7 +128,7 @@
       "author": "ST 官方",
       "description": "文本 ↔ HTML 实体（&lt; 这类），防止标签被吃掉",
       "download": "https://st.new.tg/plugins/com.st.tool.htmlentity.zip",
-      "size": 7133,
+      "size": 7357,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -148,7 +148,7 @@
       "author": "ST 官方",
       "description": "文本 ↔ 01 二进制串，看清每个字节",
       "download": "https://st.new.tg/plugins/com.st.tool.binary.zip",
-      "size": 7101,
+      "size": 7327,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -168,7 +168,7 @@
       "author": "ST 官方",
       "description": "字母位移加密，位移量自己填（默认 13）",
       "download": "https://st.new.tg/plugins/com.st.tool.rot13.zip",
-      "size": 7188,
+      "size": 7411,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -188,7 +188,7 @@
       "author": "ST 官方",
       "description": "逐字符列出码点、十六进制、UTF-8 字节",
       "download": "https://st.new.tg/plugins/com.st.tool.ascii.zip",
-      "size": 7197,
+      "size": 7424,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -208,7 +208,7 @@
       "author": "ST 官方",
       "description": "拆开 JWT 的 Header / Payload，看清算法和声明",
       "download": "https://st.new.tg/plugins/com.st.tool.jwt.zip",
-      "size": 7265,
+      "size": 7488,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -228,7 +228,7 @@
       "author": "ST 官方",
       "description": "生成 data:text/plain;base64,... 可直接塞进网页",
       "download": "https://st.new.tg/plugins/com.st.tool.dataurl.zip",
-      "size": 7110,
+      "size": 7333,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -248,7 +248,7 @@
       "author": "ST 官方",
       "description": "算文本的 MD5（32 位小写），对文件校验也够用",
       "download": "https://st.new.tg/plugins/com.st.tool.md5.zip",
-      "size": 7064,
+      "size": 7291,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -268,7 +268,7 @@
       "author": "ST 官方",
       "description": "算文本的 SHA-1（40 位小写）",
       "download": "https://st.new.tg/plugins/com.st.tool.sha1.zip",
-      "size": 6998,
+      "size": 7224,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -288,7 +288,7 @@
       "author": "ST 官方",
       "description": "算文本的 SHA-256（64 位小写），核对下载包最常用",
       "download": "https://st.new.tg/plugins/com.st.tool.sha256.zip",
-      "size": 7093,
+      "size": 7319,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -308,7 +308,7 @@
       "author": "ST 官方",
       "description": "算 CRC32（8 位十六进制），ZIP 内部用的就是它",
       "download": "https://st.new.tg/plugins/com.st.tool.crc32.zip",
-      "size": 7078,
+      "size": 7304,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -328,7 +328,7 @@
       "author": "ST 官方",
       "description": "MD5 / SHA-1 / SHA-256 / CRC32 一起算出来",
       "download": "https://st.new.tg/plugins/com.st.tool.hashall.zip",
-      "size": 7086,
+      "size": 7312,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -348,7 +348,7 @@
       "author": "ST 官方",
       "description": "两行输入：第一行原文，第二行期望哈希，自动判断是否一致",
       "download": "https://st.new.tg/plugins/com.st.tool.hashverify.zip",
-      "size": 7451,
+      "size": 7674,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -368,7 +368,7 @@
       "author": "ST 官方",
       "description": "全大写、全小写、首字母大写、驼峰、下划线之间互转",
       "download": "https://st.new.tg/plugins/com.st.tool.case.zip",
-      "size": 7237,
+      "size": 7464,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -388,7 +388,7 @@
       "author": "ST 官方",
       "description": "删掉重复行，保留第一次出现的顺序",
       "download": "https://st.new.tg/plugins/com.st.tool.dedup.zip",
-      "size": 7057,
+      "size": 7284,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -408,7 +408,7 @@
       "author": "ST 官方",
       "description": "按字母/长度排序，可选倒序",
       "download": "https://st.new.tg/plugins/com.st.tool.linesort.zip",
-      "size": 6992,
+      "size": 7216,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -428,7 +428,7 @@
       "author": "ST 官方",
       "description": "把行的顺序倒过来（不动行内内容）",
       "download": "https://st.new.tg/plugins/com.st.tool.reverselines.zip",
-      "size": 7039,
+      "size": 7262,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -448,7 +448,7 @@
       "author": "ST 官方",
       "description": "给每一行前面加 1. 2. 3. 这样的序号",
       "download": "https://st.new.tg/plugins/com.st.tool.linenumber.zip",
-      "size": 7086,
+      "size": 7309,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -468,7 +468,7 @@
       "author": "ST 官方",
       "description": "删掉空行，顺手去掉行首行尾空格",
       "download": "https://st.new.tg/plugins/com.st.tool.blankline.zip",
-      "size": 7063,
+      "size": 7289,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -488,7 +488,7 @@
       "author": "ST 官方",
       "description": "空格缩进 ↔ Tab 缩进，一次改整段",
       "download": "https://st.new.tg/plugins/com.st.tool.indent.zip",
-      "size": 7048,
+      "size": 7274,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -508,7 +508,7 @@
       "author": "ST 官方",
       "description": "字符数、行数、单词数、中文数、最长行",
       "download": "https://st.new.tg/plugins/com.st.tool.stats.zip",
-      "size": 7230,
+      "size": 7452,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -528,7 +528,7 @@
       "author": "ST 官方",
       "description": "第一行写正则，第二行写替换内容，下面是正文",
       "download": "https://st.new.tg/plugins/com.st.tool.regexreplace.zip",
-      "size": 7181,
+      "size": 7404,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -548,7 +548,7 @@
       "author": "ST 官方",
       "description": "第一行正则，下面是待匹配文本，列出全部命中位置",
       "download": "https://st.new.tg/plugins/com.st.tool.regextest.zip",
-      "size": 7358,
+      "size": 7576,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -568,7 +568,7 @@
       "author": "ST 官方",
       "description": "压成一行的 JSON 变缩进版；反向↔ 是压缩",
       "download": "https://st.new.tg/plugins/com.st.tool.jsonformat.zip",
-      "size": 7067,
+      "size": 7291,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -588,7 +588,7 @@
       "author": "ST 官方",
       "description": "检查 JSON 是否合法，顺便数一下键值和深度",
       "download": "https://st.new.tg/plugins/com.st.tool.jsoncheck.zip",
-      "size": 7343,
+      "size": 7568,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -608,7 +608,7 @@
       "author": "ST 官方",
       "description": "把压成一行的 XML 排成带缩进的树",
       "download": "https://st.new.tg/plugins/com.st.tool.xmlformat.zip",
-      "size": 7177,
+      "size": 7406,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -628,7 +628,7 @@
       "author": "ST 官方",
       "description": "统计出现最多的词，中英文都支持（中文按二元切）",
       "download": "https://st.new.tg/plugins/com.st.tool.wordfreq.zip",
-      "size": 7240,
+      "size": 7467,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -648,7 +648,7 @@
       "author": "ST 官方",
       "description": "把长段落按固定字数断行，方便发短信/写注释",
       "download": "https://st.new.tg/plugins/com.st.tool.wrap.zip",
-      "size": 7175,
+      "size": 7401,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -668,7 +668,7 @@
       "author": "ST 官方",
       "description": "逗号/换行/竖线/空格之间批量互换",
       "download": "https://st.new.tg/plugins/com.st.tool.splitjoin.zip",
-      "size": 7095,
+      "size": 7319,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -688,7 +688,7 @@
       "author": "ST 官方",
       "description": "给文本加转义（\\n \\t \\\" \\\\），或还原成真实字符",
       "download": "https://st.new.tg/plugins/com.st.tool.escape.zip",
-      "size": 7127,
+      "size": 7353,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -708,7 +708,7 @@
       "author": "ST 官方",
       "description": "逗号表格和 Tab 表格互转，粘进 Excel 不串列",
       "download": "https://st.new.tg/plugins/com.st.tool.csvtsv.zip",
-      "size": 7130,
+      "size": 7353,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -728,7 +728,7 @@
       "author": "ST 官方",
       "description": "时间戳 ↔ 年月日时分秒，秒和毫秒都认",
       "download": "https://st.new.tg/plugins/com.st.tool.timestamp.zip",
-      "size": 7439,
+      "size": 7663,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -748,7 +748,7 @@
       "author": "ST 官方",
       "description": "一眼看到现在的时间戳（秒/毫秒）、ISO、星期、时区",
       "download": "https://st.new.tg/plugins/com.st.tool.now.zip",
-      "size": 7331,
+      "size": 7554,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -768,7 +768,7 @@
       "author": "ST 官方",
       "description": "十进制 ↔ 二/八/十六进制，一次给全",
       "download": "https://st.new.tg/plugins/com.st.tool.baseconv.zip",
-      "size": 7165,
+      "size": 7392,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -788,7 +788,7 @@
       "author": "ST 官方",
       "description": "HEX ↔ RGB ↔ HSL，顺带给出亮度与黑白对比建议",
       "download": "https://st.new.tg/plugins/com.st.tool.color.zip",
-      "size": 7573,
+      "size": 7803,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -808,7 +808,7 @@
       "author": "ST 官方",
       "description": "一次生成 10 个 UUID v4 和短 ID",
       "download": "https://st.new.tg/plugins/com.st.tool.uuid.zip",
-      "size": 7192,
+      "size": 7419,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -828,7 +828,7 @@
       "author": "ST 官方",
       "description": "生成 12 个高强度密码，并评估你输入那个的强度",
       "download": "https://st.new.tg/plugins/com.st.tool.password.zip",
-      "size": 7436,
+      "size": 7660,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -848,7 +848,7 @@
       "author": "ST 官方",
       "description": "把选中的文件读出来转成 Base64 文本，可直接贴进接口",
       "download": "https://st.new.tg/plugins/com.st.file.b64out.zip",
-      "size": 7394,
+      "size": 7616,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -873,7 +873,7 @@
       "author": "ST 官方",
       "description": "给勾选的文件名统一加前缀，重名自动跳过",
       "download": "https://st.new.tg/plugins/com.st.file.prefix.zip",
-      "size": 7370,
+      "size": 7595,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -899,7 +899,7 @@
       "author": "ST 官方",
       "description": "把勾选文件的扩展名统一换成你写的那个",
       "download": "https://st.new.tg/plugins/com.st.file.ext.zip",
-      "size": 7362,
+      "size": 7585,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -925,7 +925,7 @@
       "author": "ST 官方",
       "description": "两行输入：要替换的老文字、换成的新文字，作用于勾选文件",
       "download": "https://st.new.tg/plugins/com.st.file.namereplace.zip",
-      "size": 7512,
+      "size": 7732,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -951,7 +951,7 @@
       "author": "ST 官方",
       "description": "把当前目录的文件列表导成 CSV（名称/大小/类型），可存成文件",
       "download": "https://st.new.tg/plugins/com.st.file.listcsv.zip",
-      "size": 7451,
+      "size": 7674,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -975,7 +975,7 @@
       "author": "ST 官方",
       "description": "当前目录按大小排前 20 个文件，清理空间先看这个",
       "download": "https://st.new.tg/plugins/com.st.file.bigfiles.zip",
-      "size": 7423,
+      "size": 7649,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -999,7 +999,7 @@
       "author": "ST 官方",
       "description": "列出当前目录里 0 字节的文件和空文件夹",
       "download": "https://st.new.tg/plugins/com.st.file.empty.zip",
-      "size": 7282,
+      "size": 7507,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1023,7 +1023,7 @@
       "author": "ST 官方",
       "description": "算当前目录下每个子目录占多大，找出空间黑洞",
       "download": "https://st.new.tg/plugins/com.st.file.dirsizes.zip",
-      "size": 7488,
+      "size": 7712,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1047,7 +1047,7 @@
       "author": "ST 官方",
       "description": "按大小分组，找出可能重复的文件（同大小才比对名称）",
       "download": "https://st.new.tg/plugins/com.st.file.dupsize.zip",
-      "size": 7441,
+      "size": 7661,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1071,7 +1071,7 @@
       "author": "ST 官方",
       "description": "把当前目录（两层）画成树，方便贴给别人看结构",
       "download": "https://st.new.tg/plugins/com.st.file.tree.zip",
-      "size": 7390,
+      "size": 7614,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1095,7 +1095,7 @@
       "author": "ST 官方",
       "description": "走宿主 API 拿机型、SDK、ABI、屏幕等，不依赖 shell",
       "download": "https://st.new.tg/plugins/com.st.sys.device.zip",
-      "size": 7271,
+      "size": 7493,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1118,7 +1118,7 @@
       "author": "ST 官方",
       "description": "电量、是否充电、温度、电压、健康状态",
       "download": "https://st.new.tg/plugins/com.st.sys.battery.zip",
-      "size": 7166,
+      "size": 7389,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1141,7 +1141,7 @@
       "author": "ST 官方",
       "description": "各分区的总量 / 剩余 / 使用率，一眼看谁快满了",
       "download": "https://st.new.tg/plugins/com.st.sys.storage.zip",
-      "size": 7376,
+      "size": 7599,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1164,7 +1164,7 @@
       "author": "ST 官方",
       "description": "列出应用数量与前 30 个包名，找包名时很方便",
       "download": "https://st.new.tg/plugins/com.st.sys.apps.zip",
-      "size": 7376,
+      "size": 7598,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1185,7 +1185,7 @@
       "author": "ST 官方",
       "description": "自动识别语言，中文译成英文、其它译成中文",
       "download": "https://st.new.tg/plugins/com.st.net.translate.zip",
-      "size": 7634,
+      "size": 7853,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1207,7 +1207,7 @@
       "author": "ST 官方",
       "description": "输入一个网址，显示状态码和返回内容前 3000 字，调试接口用",
       "download": "https://st.new.tg/plugins/com.st.net.httpget.zip",
-      "size": 7470,
+      "size": 7686,
       "permissions": [
         "ui.page",
         "ui.theme",
