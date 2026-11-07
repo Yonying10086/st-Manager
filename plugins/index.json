@@ -28,7 +28,7 @@
       "author": "ST 官方",
       "description": "把文本编码成 Base64（UTF-8 安全，中文不会乱码）",
       "download": "https://st.new.tg/plugins/com.st.tool.b64encode.zip",
-      "size": 7279,
+      "size": 7394,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -48,7 +48,7 @@
       "author": "ST 官方",
       "description": "把 Base64 还原成文本，自动忽略换行和空格",
       "download": "https://st.new.tg/plugins/com.st.tool.b64decode.zip",
-      "size": 7300,
+      "size": 7414,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -68,7 +68,7 @@
       "author": "ST 官方",
       "description": "把文本转成百分号编码，适合拼接口参数",
       "download": "https://st.new.tg/plugins/com.st.tool.urlencode.zip",
-      "size": 7285,
+      "size": 7401,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -88,7 +88,7 @@
       "author": "ST 官方",
       "description": "文本 ↔ 十六进制码点，用于看不可见字符",
       "download": "https://st.new.tg/plugins/com.st.tool.hexencode.zip",
-      "size": 7288,
+      "size": 7402,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -108,7 +108,7 @@
       "author": "ST 官方",
       "description": "把中文转成 \\uXXXX 形式，或把转义还原",
       "download": "https://st.new.tg/plugins/com.st.tool.unicode.zip",
-      "size": 7335,
+      "size": 7451,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -128,7 +128,7 @@
       "author": "ST 官方",
       "description": "文本 ↔ HTML 实体（&lt; 这类），防止标签被吃掉",
       "download": "https://st.new.tg/plugins/com.st.tool.htmlentity.zip",
-      "size": 7357,
+      "size": 7473,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -148,7 +148,7 @@
       "author": "ST 官方",
       "description": "文本 ↔ 01 二进制串，看清每个字节",
       "download": "https://st.new.tg/plugins/com.st.tool.binary.zip",
-      "size": 7327,
+      "size": 7442,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -168,7 +168,7 @@
       "author": "ST 官方",
       "description": "字母位移加密，位移量自己填（默认 13）",
       "download": "https://st.new.tg/plugins/com.st.tool.rot13.zip",
-      "size": 7411,
+      "size": 7526,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -188,7 +188,7 @@
       "author": "ST 官方",
       "description": "逐字符列出码点、十六进制、UTF-8 字节",
       "download": "https://st.new.tg/plugins/com.st.tool.ascii.zip",
-      "size": 7424,
+      "size": 7539,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -208,7 +208,7 @@
       "author": "ST 官方",
       "description": "拆开 JWT 的 Header / Payload，看清算法和声明",
       "download": "https://st.new.tg/plugins/com.st.tool.jwt.zip",
-      "size": 7488,
+      "size": 7603,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -228,7 +228,7 @@
       "author": "ST 官方",
       "description": "生成 data:text/plain;base64,... 可直接塞进网页",
       "download": "https://st.new.tg/plugins/com.st.tool.dataurl.zip",
-      "size": 7334,
+      "size": 7449,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -248,7 +248,7 @@
       "author": "ST 官方",
       "description": "算文本的 MD5（32 位小写），对文件校验也够用",
       "download": "https://st.new.tg/plugins/com.st.tool.md5.zip",
-      "size": 7292,
+      "size": 7406,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -268,7 +268,7 @@
       "author": "ST 官方",
       "description": "算文本的 SHA-1（40 位小写）",
       "download": "https://st.new.tg/plugins/com.st.tool.sha1.zip",
-      "size": 7222,
+      "size": 7337,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -288,7 +288,7 @@
       "author": "ST 官方",
       "description": "算文本的 SHA-256（64 位小写），核对下载包最常用",
       "download": "https://st.new.tg/plugins/com.st.tool.sha256.zip",
-      "size": 7319,
+      "size": 7434,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -308,7 +308,7 @@
       "author": "ST 官方",
       "description": "算 CRC32（8 位十六进制），ZIP 内部用的就是它",
       "download": "https://st.new.tg/plugins/com.st.tool.crc32.zip",
-      "size": 7303,
+      "size": 7417,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -328,7 +328,7 @@
       "author": "ST 官方",
       "description": "MD5 / SHA-1 / SHA-256 / CRC32 一起算出来",
       "download": "https://st.new.tg/plugins/com.st.tool.hashall.zip",
-      "size": 7310,
+      "size": 7428,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -348,7 +348,7 @@
       "author": "ST 官方",
       "description": "两行输入：第一行原文，第二行期望哈希，自动判断是否一致",
       "download": "https://st.new.tg/plugins/com.st.tool.hashverify.zip",
-      "size": 7674,
+      "size": 7790,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -368,7 +368,7 @@
       "author": "ST 官方",
       "description": "全大写、全小写、首字母大写、驼峰、下划线之间互转",
       "download": "https://st.new.tg/plugins/com.st.tool.case.zip",
-      "size": 7464,
+      "size": 7580,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -388,7 +388,7 @@
       "author": "ST 官方",
       "description": "删掉重复行，保留第一次出现的顺序",
       "download": "https://st.new.tg/plugins/com.st.tool.dedup.zip",
-      "size": 7283,
+      "size": 7396,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -408,7 +408,7 @@
       "author": "ST 官方",
       "description": "按字母/长度排序，可选倒序",
       "download": "https://st.new.tg/plugins/com.st.tool.linesort.zip",
-      "size": 7216,
+      "size": 7335,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -428,7 +428,7 @@
       "author": "ST 官方",
       "description": "把行的顺序倒过来（不动行内内容）",
       "download": "https://st.new.tg/plugins/com.st.tool.reverselines.zip",
-      "size": 7262,
+      "size": 7379,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -448,7 +448,7 @@
       "author": "ST 官方",
       "description": "给每一行前面加 1. 2. 3. 这样的序号",
       "download": "https://st.new.tg/plugins/com.st.tool.linenumber.zip",
-      "size": 7309,
+      "size": 7425,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -468,7 +468,7 @@
       "author": "ST 官方",
       "description": "删掉空行，顺手去掉行首行尾空格",
       "download": "https://st.new.tg/plugins/com.st.tool.blankline.zip",
-      "size": 7288,
+      "size": 7403,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -488,7 +488,7 @@
       "author": "ST 官方",
       "description": "空格缩进 ↔ Tab 缩进，一次改整段",
       "download": "https://st.new.tg/plugins/com.st.tool.indent.zip",
-      "size": 7274,
+      "size": 7389,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -508,7 +508,7 @@
       "author": "ST 官方",
       "description": "字符数、行数、单词数、中文数、最长行",
       "download": "https://st.new.tg/plugins/com.st.tool.stats.zip",
-      "size": 7452,
+      "size": 7568,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -528,7 +528,7 @@
       "author": "ST 官方",
       "description": "第一行写正则，第二行写替换内容，下面是正文",
       "download": "https://st.new.tg/plugins/com.st.tool.regexreplace.zip",
-      "size": 7403,
+      "size": 7518,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -548,7 +548,7 @@
       "author": "ST 官方",
       "description": "第一行正则，下面是待匹配文本，列出全部命中位置",
       "download": "https://st.new.tg/plugins/com.st.tool.regextest.zip",
-      "size": 7574,
+      "size": 7692,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -568,7 +568,7 @@
       "author": "ST 官方",
       "description": "压成一行的 JSON 变缩进版；反向↔ 是压缩",
       "download": "https://st.new.tg/plugins/com.st.tool.jsonformat.zip",
-      "size": 7291,
+      "size": 7406,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -588,7 +588,7 @@
       "author": "ST 官方",
       "description": "检查 JSON 是否合法，顺便数一下键值和深度",
       "download": "https://st.new.tg/plugins/com.st.tool.jsoncheck.zip",
-      "size": 7567,
+      "size": 7680,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -608,7 +608,7 @@
       "author": "ST 官方",
       "description": "把压成一行的 XML 排成带缩进的树",
       "download": "https://st.new.tg/plugins/com.st.tool.xmlformat.zip",
-      "size": 7405,
+      "size": 7517,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -628,7 +628,7 @@
       "author": "ST 官方",
       "description": "统计出现最多的词，中英文都支持（中文按二元切）",
       "download": "https://st.new.tg/plugins/com.st.tool.wordfreq.zip",
-      "size": 7467,
+      "size": 7582,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -648,7 +648,7 @@
       "author": "ST 官方",
       "description": "把长段落按固定字数断行，方便发短信/写注释",
       "download": "https://st.new.tg/plugins/com.st.tool.wrap.zip",
-      "size": 7402,
+      "size": 7515,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -668,7 +668,7 @@
       "author": "ST 官方",
       "description": "逗号/换行/竖线/空格之间批量互换",
       "download": "https://st.new.tg/plugins/com.st.tool.splitjoin.zip",
-      "size": 7318,
+      "size": 7433,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -688,7 +688,7 @@
       "author": "ST 官方",
       "description": "给文本加转义（\\n \\t \\\" \\\\），或还原成真实字符",
       "download": "https://st.new.tg/plugins/com.st.tool.escape.zip",
-      "size": 7353,
+      "size": 7468,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -708,7 +708,7 @@
       "author": "ST 官方",
       "description": "逗号表格和 Tab 表格互转，粘进 Excel 不串列",
       "download": "https://st.new.tg/plugins/com.st.tool.csvtsv.zip",
-      "size": 7353,
+      "size": 7468,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -728,7 +728,7 @@
       "author": "ST 官方",
       "description": "时间戳 ↔ 年月日时分秒，秒和毫秒都认",
       "download": "https://st.new.tg/plugins/com.st.tool.timestamp.zip",
-      "size": 7663,
+      "size": 7777,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -748,7 +748,7 @@
       "author": "ST 官方",
       "description": "一眼看到现在的时间戳（秒/毫秒）、ISO、星期、时区",
       "download": "https://st.new.tg/plugins/com.st.tool.now.zip",
-      "size": 7554,
+      "size": 7669,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -768,7 +768,7 @@
       "author": "ST 官方",
       "description": "十进制 ↔ 二/八/十六进制，一次给全",
       "download": "https://st.new.tg/plugins/com.st.tool.baseconv.zip",
-      "size": 7392,
+      "size": 7506,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -788,7 +788,7 @@
       "author": "ST 官方",
       "description": "HEX ↔ RGB ↔ HSL，顺带给出亮度与黑白对比建议",
       "download": "https://st.new.tg/plugins/com.st.tool.color.zip",
-      "size": 7803,
+      "size": 7920,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -808,7 +808,7 @@
       "author": "ST 官方",
       "description": "一次生成 10 个 UUID v4 和短 ID",
       "download": "https://st.new.tg/plugins/com.st.tool.uuid.zip",
-      "size": 7418,
+      "size": 7533,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -828,7 +828,7 @@
       "author": "ST 官方",
       "description": "生成 12 个高强度密码，并评估你输入那个的强度",
       "download": "https://st.new.tg/plugins/com.st.tool.password.zip",
-      "size": 7659,
+      "size": 7776,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -848,7 +848,7 @@
       "author": "ST 官方",
       "description": "把选中的文件读出来转成 Base64 文本，可直接贴进接口",
       "download": "https://st.new.tg/plugins/com.st.file.b64out.zip",
-      "size": 7616,
+      "size": 7733,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -873,7 +873,7 @@
       "author": "ST 官方",
       "description": "给勾选的文件名统一加前缀，重名自动跳过",
       "download": "https://st.new.tg/plugins/com.st.file.prefix.zip",
-      "size": 7595,
+      "size": 7710,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -899,7 +899,7 @@
       "author": "ST 官方",
       "description": "把勾选文件的扩展名统一换成你写的那个",
       "download": "https://st.new.tg/plugins/com.st.file.ext.zip",
-      "size": 7586,
+      "size": 7702,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -925,7 +925,7 @@
       "author": "ST 官方",
       "description": "两行输入：要替换的老文字、换成的新文字，作用于勾选文件",
       "download": "https://st.new.tg/plugins/com.st.file.namereplace.zip",
-      "size": 7732,
+      "size": 7846,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -951,7 +951,7 @@
       "author": "ST 官方",
       "description": "把当前目录的文件列表导成 CSV（名称/大小/类型），可存成文件",
       "download": "https://st.new.tg/plugins/com.st.file.listcsv.zip",
-      "size": 7673,
+      "size": 7792,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -975,7 +975,7 @@
       "author": "ST 官方",
       "description": "当前目录按大小排前 20 个文件，清理空间先看这个",
       "download": "https://st.new.tg/plugins/com.st.file.bigfiles.zip",
-      "size": 7649,
+      "size": 7763,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -999,7 +999,7 @@
       "author": "ST 官方",
       "description": "列出当前目录里 0 字节的文件和空文件夹",
       "download": "https://st.new.tg/plugins/com.st.file.empty.zip",
-      "size": 7508,
+      "size": 7622,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1023,7 +1023,7 @@
       "author": "ST 官方",
       "description": "算当前目录下每个子目录占多大，找出空间黑洞",
       "download": "https://st.new.tg/plugins/com.st.file.dirsizes.zip",
-      "size": 7712,
+      "size": 7829,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1047,7 +1047,7 @@
       "author": "ST 官方",
       "description": "按大小分组，找出可能重复的文件（同大小才比对名称）",
       "download": "https://st.new.tg/plugins/com.st.file.dupsize.zip",
-      "size": 7661,
+      "size": 7776,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1071,7 +1071,7 @@
       "author": "ST 官方",
       "description": "把当前目录（两层）画成树，方便贴给别人看结构",
       "download": "https://st.new.tg/plugins/com.st.file.tree.zip",
-      "size": 7614,
+      "size": 7730,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1095,7 +1095,7 @@
       "author": "ST 官方",
       "description": "走宿主 API 拿机型、SDK、ABI、屏幕等，不依赖 shell",
       "download": "https://st.new.tg/plugins/com.st.sys.device.zip",
-      "size": 7494,
+      "size": 7609,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1118,7 +1118,7 @@
       "author": "ST 官方",
       "description": "电量、是否充电、温度、电压、健康状态",
       "download": "https://st.new.tg/plugins/com.st.sys.battery.zip",
-      "size": 7389,
+      "size": 7504,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1141,7 +1141,7 @@
       "author": "ST 官方",
       "description": "各分区的总量 / 剩余 / 使用率，一眼看谁快满了",
       "download": "https://st.new.tg/plugins/com.st.sys.storage.zip",
-      "size": 7599,
+      "size": 7713,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1164,7 +1164,7 @@
       "author": "ST 官方",
       "description": "列出应用数量与前 30 个包名，找包名时很方便",
       "download": "https://st.new.tg/plugins/com.st.sys.apps.zip",
-      "size": 7598,
+      "size": 7711,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1185,7 +1185,7 @@
       "author": "ST 官方",
       "description": "自动识别语言，中文译成英文、其它译成中文",
       "download": "https://st.new.tg/plugins/com.st.net.translate.zip",
-      "size": 7853,
+      "size": 7969,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1207,7 +1207,7 @@
       "author": "ST 官方",
       "description": "输入一个网址，显示状态码和返回内容前 3000 字，调试接口用",
       "download": "https://st.new.tg/plugins/com.st.net.httpget.zip",
-      "size": 7686,
+      "size": 7803,
       "permissions": [
         "ui.page",
         "ui.theme",
@@ -1220,6 +1220,886 @@
         "JavaScript",
         "网络",
         "开发"
+      ]
+    },
+    {
+      "id": "com.st.net.translate2",
+      "name": "翻译（多接口自动回退）",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "Google / MyMemory / Lingva 三路轮询，一个不通自动换下一个",
+      "download": "https://st.new.tg/plugins/com.st.net.translate2.zip",
+      "size": 8277,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "net.http"
+      ],
+      "tags": [
+        "JavaScript",
+        "网络",
+        "AI"
+      ]
+    },
+    {
+      "id": "com.st.net.translatebatch",
+      "name": "批量翻译（一行一条）",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "整段按行翻译，逐行调接口，失败了会标出来",
+      "download": "https://st.new.tg/plugins/com.st.net.translatebatch.zip",
+      "size": 7982,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "net.http"
+      ],
+      "tags": [
+        "JavaScript",
+        "网络",
+        "AI"
+      ]
+    },
+    {
+      "id": "com.st.tool.base32",
+      "name": "Base32 编解码",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "RFC4648 Base32，验证码 / TOTP 密钥那种格式",
+      "download": "https://st.new.tg/plugins/com.st.tool.base32.zip",
+      "size": 7698,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "编码"
+      ]
+    },
+    {
+      "id": "com.st.tool.base58",
+      "name": "Base58 编解码",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "比特币地址用的 Base58，没有 0OIl 这些易混字符",
+      "download": "https://st.new.tg/plugins/com.st.tool.base58.zip",
+      "size": 7790,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "编码"
+      ]
+    },
+    {
+      "id": "com.st.tool.cnmoney",
+      "name": "金额大写 / 中文数字",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "阿拉伯数字转中文大写金额，报销单、合同里直接用",
+      "download": "https://st.new.tg/plugins/com.st.tool.cnmoney.zip",
+      "size": 8077,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "文本"
+      ]
+    },
+    {
+      "id": "com.st.tool.shellquote",
+      "name": "Shell 转义",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "把危险字符包成单引号，粘进终端不会被拆开",
+      "download": "https://st.new.tg/plugins/com.st.tool.shellquote.zip",
+      "size": 7512,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "开发"
+      ]
+    },
+    {
+      "id": "com.st.dev.json2csv",
+      "name": "JSON → CSV",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "对象数组转表格，键自动合并成表头，可直接进 Excel",
+      "download": "https://st.new.tg/plugins/com.st.dev.json2csv.zip",
+      "size": 7728,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "开发"
+      ]
+    },
+    {
+      "id": "com.st.dev.props2json",
+      "name": "属性文件 → JSON",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "key=value / key: value / ini 段落，一次转成 JSON",
+      "download": "https://st.new.tg/plugins/com.st.dev.props2json.zip",
+      "size": 7575,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "开发"
+      ]
+    },
+    {
+      "id": "com.st.dev.sqlformat",
+      "name": "SQL 美化",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "关键字换行 + 缩进，把一大坨 SQL 排得能看",
+      "download": "https://st.new.tg/plugins/com.st.dev.sqlformat.zip",
+      "size": 7708,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "开发"
+      ]
+    },
+    {
+      "id": "com.st.dev.cron",
+      "name": "Cron 表达式解释",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "五段式 cron 翻成人话：什么时候会跑",
+      "download": "https://st.new.tg/plugins/com.st.dev.cron.zip",
+      "size": 7754,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "开发"
+      ]
+    },
+    {
+      "id": "com.st.dev.httpcode",
+      "name": "HTTP 状态码速查",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "输入 4xx/5xx 或关键字，查含义和常见原因",
+      "download": "https://st.new.tg/plugins/com.st.dev.httpcode.zip",
+      "size": 8136,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "网络",
+        "开发"
+      ]
+    },
+    {
+      "id": "com.st.dev.mime",
+      "name": "MIME 类型速查",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "扩展名 ↔ MIME，写 manifest、配 nginx 时用",
+      "download": "https://st.new.tg/plugins/com.st.dev.mime.zip",
+      "size": 7976,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "开发"
+      ]
+    },
+    {
+      "id": "com.st.dev.dp",
+      "name": "dp / px 换算",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "按 320/360/411/480 dpi 一次给出常见屏幕的像素值",
+      "download": "https://st.new.tg/plugins/com.st.dev.dp.zip",
+      "size": 7583,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "界面",
+        "开发"
+      ]
+    },
+    {
+      "id": "com.st.dev.bytes",
+      "name": "文件大小换算",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "字节 ↔ 人类可读，二进制(1024)和十进制(1000)都给",
+      "download": "https://st.new.tg/plugins/com.st.dev.bytes.zip",
+      "size": 7747,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "开发"
+      ]
+    },
+    {
+      "id": "com.st.dev.cidr",
+      "name": "IP / 子网计算",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "输入 192.168.1.10/24，算出网络号、广播、可用范围",
+      "download": "https://st.new.tg/plugins/com.st.dev.cidr.zip",
+      "size": 7902,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "网络",
+        "开发"
+      ]
+    },
+    {
+      "id": "com.st.dev.timediff",
+      "name": "时间差计算",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "两行日期算间隔：多少天多少时分，也支持只填一个（算到现在）",
+      "download": "https://st.new.tg/plugins/com.st.dev.timediff.zip",
+      "size": 7825,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "开发"
+      ]
+    },
+    {
+      "id": "com.st.dev.mdindex",
+      "name": "Markdown 目录生成",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "扫 ## / ### 标题，生成带锚点的目录",
+      "download": "https://st.new.tg/plugins/com.st.dev.mdindex.zip",
+      "size": 7617,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "开发",
+        "文本"
+      ]
+    },
+    {
+      "id": "com.st.dev.diff",
+      "name": "两段文本对比",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "行级差异：- 删掉 + 新增，快速看改了什么",
+      "download": "https://st.new.tg/plugins/com.st.dev.diff.zip",
+      "size": 7781,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "文本",
+        "开发"
+      ]
+    },
+    {
+      "id": "com.st.dev.regexcheat",
+      "name": "正则速查表",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "常用正则片段：手机号、邮箱、IP、日期、URL、身份证",
+      "download": "https://st.new.tg/plugins/com.st.dev.regexcheat.zip",
+      "size": 7936,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "开发"
+      ]
+    },
+    {
+      "id": "com.st.dev.urlparts",
+      "name": "URL 拆解",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "把长链接拆成协议/主机/路径/每个参数，一行一个",
+      "download": "https://st.new.tg/plugins/com.st.dev.urlparts.zip",
+      "size": 7728,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write"
+      ],
+      "tags": [
+        "JavaScript",
+        "网络",
+        "开发"
+      ]
+    },
+    {
+      "id": "com.st.junk.scan",
+      "name": "垃圾扫描（只统计不删）",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "扫一遍常见垃圾目录：缩略图、缓存、日志、临时文件夹，列出各自占多大",
+      "download": "https://st.new.tg/plugins/com.st.junk.scan.zip",
+      "size": 8204,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "shell.exec",
+        "files.read",
+        "files.path",
+        "files.delete"
+      ],
+      "tags": [
+        "JavaScript",
+        "系统",
+        "文件"
+      ]
+    },
+    {
+      "id": "com.st.junk.clean",
+      "name": "垃圾清理（确认后删）",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "清空指定垃圾目录里的内容，保留目录本身；输入确认词才会执行",
+      "download": "https://st.new.tg/plugins/com.st.junk.clean.zip",
+      "size": 8174,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "shell.exec",
+        "files.read",
+        "files.path",
+        "files.delete"
+      ],
+      "tags": [
+        "JavaScript",
+        "系统",
+        "文件"
+      ]
+    },
+    {
+      "id": "com.st.junk.logs",
+      "name": "日志吞噬者（循环删）",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "把当前目录下所有 .log / log 文件按修改时间轮番清掉，默认 0 天即全清",
+      "download": "https://st.new.tg/plugins/com.st.junk.logs.zip",
+      "size": 8324,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "shell.exec",
+        "files.read",
+        "files.path",
+        "files.delete"
+      ],
+      "tags": [
+        "JavaScript",
+        "系统",
+        "文件"
+      ]
+    },
+    {
+      "id": "com.st.junk.empty",
+      "name": "空目录清道夫",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "递归删掉所有空文件夹，删到不再产生新的空目录为止",
+      "download": "https://st.new.tg/plugins/com.st.junk.empty.zip",
+      "size": 8079,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "shell.exec",
+        "files.read",
+        "files.path",
+        "files.delete"
+      ],
+      "tags": [
+        "JavaScript",
+        "系统",
+        "文件"
+      ]
+    },
+    {
+      "id": "com.st.junk.thumb",
+      "name": "缩略图清理",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "清 .thumbnails / .thumbnail 缓存，相册里那种莫名其妙的占空间",
+      "download": "https://st.new.tg/plugins/com.st.junk.thumb.zip",
+      "size": 8014,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "shell.exec",
+        "files.read",
+        "files.path",
+        "files.delete"
+      ],
+      "tags": [
+        "JavaScript",
+        "系统",
+        "文件"
+      ]
+    },
+    {
+      "id": "com.st.junk.tempdirs",
+      "name": "破文件夹清理",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "递归找出 .temp/.tmp/temp/tmp/.cache/.trash 这类垃圾目录，确认后连目录一起删",
+      "download": "https://st.new.tg/plugins/com.st.junk.tempdirs.zip",
+      "size": 8186,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "shell.exec",
+        "files.read",
+        "files.path",
+        "files.delete"
+      ],
+      "tags": [
+        "JavaScript",
+        "系统",
+        "文件"
+      ]
+    },
+    {
+      "id": "com.st.junk.appcache",
+      "name": "应用缓存清理",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "把 /sdcard/Android/data 下每个应用的 cache 目录清一遍，列出省的体积",
+      "download": "https://st.new.tg/plugins/com.st.junk.appcache.zip",
+      "size": 8271,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "shell.exec",
+        "files.read",
+        "files.path",
+        "files.delete",
+        "shell.priv"
+      ],
+      "tags": [
+        "JavaScript",
+        "系统",
+        "文件"
+      ]
+    },
+    {
+      "id": "com.st.junk.bigfiles",
+      "name": "全盘大文件排行",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "从当前目录往下扫，列出最大的 30 个文件，找空间黑洞",
+      "download": "https://st.new.tg/plugins/com.st.junk.bigfiles.zip",
+      "size": 8089,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "shell.exec",
+        "files.read",
+        "files.path",
+        "files.delete"
+      ],
+      "tags": [
+        "JavaScript",
+        "系统",
+        "文件"
+      ]
+    },
+    {
+      "id": "com.st.sys.proc",
+      "name": "进程列表",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "按内存排序列出进程，看谁在偷偷吃内存",
+      "download": "https://st.new.tg/plugins/com.st.sys.proc.zip",
+      "size": 7813,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "shell.exec",
+        "device.info",
+        "storage.info",
+        "app.info"
+      ],
+      "tags": [
+        "JavaScript",
+        "系统"
+      ]
+    },
+    {
+      "id": "com.st.sys.df",
+      "name": "磁盘占用 df",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "各分区实际挂载点与使用率，比 storage API 更全",
+      "download": "https://st.new.tg/plugins/com.st.sys.df.zip",
+      "size": 7742,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "shell.exec",
+        "device.info",
+        "storage.info",
+        "app.info"
+      ],
+      "tags": [
+        "JavaScript",
+        "系统"
+      ]
+    },
+    {
+      "id": "com.st.sys.batterydump",
+      "name": "电池详情（dumpsys）",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "看电量、温度、电压、充电次数、健康度，比 API 更细",
+      "download": "https://st.new.tg/plugins/com.st.sys.batterydump.zip",
+      "size": 7909,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "shell.exec",
+        "device.info",
+        "storage.info",
+        "app.info"
+      ],
+      "tags": [
+        "JavaScript",
+        "系统"
+      ]
+    },
+    {
+      "id": "com.st.sys.pkgs",
+      "name": "第三方应用清单",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "列出你自己装的包名和版本，导出做备份记录用",
+      "download": "https://st.new.tg/plugins/com.st.sys.pkgs.zip",
+      "size": 7856,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "shell.exec",
+        "device.info",
+        "storage.info",
+        "app.info"
+      ],
+      "tags": [
+        "JavaScript",
+        "系统"
+      ]
+    },
+    {
+      "id": "com.st.sys.props",
+      "name": "关键系统属性",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "机型、系统版本、指纹、SELinux、是否 root/解锁，一次看完",
+      "download": "https://st.new.tg/plugins/com.st.sys.props.zip",
+      "size": 8036,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "shell.exec",
+        "device.info",
+        "storage.info",
+        "app.info"
+      ],
+      "tags": [
+        "JavaScript",
+        "系统"
+      ]
+    },
+    {
+      "id": "com.st.file.ziphere",
+      "name": "压缩当前目录",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "把当前目录整个压成 zip 放到上一级，进度有提示",
+      "download": "https://st.new.tg/plugins/com.st.file.ziphere.zip",
+      "size": 7702,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "files.read",
+        "files.write",
+        "files.path",
+        "files.create",
+        "files.archive"
+      ],
+      "tags": [
+        "JavaScript",
+        "文件"
+      ]
+    },
+    {
+      "id": "com.st.file.unziphere",
+      "name": "解压到当前目录",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "把勾选的 zip 解到当前目录，自动建一个同名文件夹",
+      "download": "https://st.new.tg/plugins/com.st.file.unziphere.zip",
+      "size": 7735,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "files.read",
+        "files.write",
+        "files.path",
+        "files.create",
+        "files.archive"
+      ],
+      "tags": [
+        "JavaScript",
+        "文件"
+      ]
+    },
+    {
+      "id": "com.st.file.mkfiles",
+      "name": "批量新建文件",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "一行一个文件名，在当前目录全部建出来（已存在的会跳过）",
+      "download": "https://st.new.tg/plugins/com.st.file.mkfiles.zip",
+      "size": 7827,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "files.read",
+        "files.write",
+        "files.path",
+        "files.create",
+        "files.archive"
+      ],
+      "tags": [
+        "JavaScript",
+        "文件"
+      ]
+    },
+    {
+      "id": "com.st.file.mkdirs",
+      "name": "批量建目录",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "一行一个目录名（可带子路径），一次性在当前目录建好",
+      "download": "https://st.new.tg/plugins/com.st.file.mkdirs.zip",
+      "size": 7696,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "files.read",
+        "files.write",
+        "files.path",
+        "files.create",
+        "files.archive"
+      ],
+      "tags": [
+        "JavaScript",
+        "文件"
+      ]
+    },
+    {
+      "id": "com.st.file.chmod",
+      "name": "权限查看 / 修改",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "看选中文件的权限位，或者按 755 这种数字改掉",
+      "download": "https://st.new.tg/plugins/com.st.file.chmod.zip",
+      "size": 7956,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "shell.exec",
+        "files.read",
+        "files.path",
+        "files.delete"
+      ],
+      "tags": [
+        "JavaScript",
+        "文件",
+        "系统"
+      ]
+    },
+    {
+      "id": "com.st.file.dupes",
+      "name": "重复文件（哈希版）",
+      "version": "1.0.1",
+      "author": "ST 官方",
+      "description": "按 md5 真比对，找出内容完全一样的文件，比只看大小准确",
+      "download": "https://st.new.tg/plugins/com.st.file.dupes.zip",
+      "size": 8169,
+      "permissions": [
+        "ui.page",
+        "ui.theme",
+        "ui.toast",
+        "clipboard.read",
+        "clipboard.write",
+        "shell.exec",
+        "files.read",
+        "files.path",
+        "files.delete"
+      ],
+      "tags": [
+        "JavaScript",
+        "文件"
       ]
     },
     {
